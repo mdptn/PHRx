@@ -1,5 +1,6 @@
 package com.example.symphony.phrx;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
 
     // when a tab is selected :
     @Override
-    public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+    public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
 
         int nTabSelected = tab.getPosition();
         switch (nTabSelected) {
@@ -60,15 +61,13 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         }
     }
 
-    // not using this yet
     @Override
-    public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+    public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
         // Called when a tab unselected.
     }
 
-    // not using this yet
     @Override
-    public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+    public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
 
         // Called when a tab is selected again.
     }
