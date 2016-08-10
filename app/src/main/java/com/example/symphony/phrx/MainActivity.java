@@ -7,6 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+
+// used this tutorial to help with creating tab navigation:
+// http://www.viralandroid.com/2015/09/android-actionbar-tabs-example.html
+
 public class MainActivity extends AppCompatActivity implements ActionBar.TabListener{
 
     @Override
@@ -17,7 +21,7 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         ActionBar ab = getSupportActionBar();
         ab.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
-        // Three tab to display in actionbar
+        // Displays the tabs in the action bar
         ab.addTab(ab.newTab().setText("Tab 1").setTabListener(this));
         ab.addTab(ab.newTab().setText("Tab 2").setTabListener(this));
         ab.addTab(ab.newTab().setText("Tab 3").setTabListener(this));
@@ -26,12 +30,15 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         ab.addTab(ab.newTab().setText("Tab 6").setTabListener(this));
     }
 
+
+    // when a tab is selected :
     @Override
     public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
 
-        //Called when a tab is selected
         int nTabSelected = tab.getPosition();
         switch (nTabSelected) {
+            // cases are determined when a particular tab is selected in order to show the
+            // corresponding view
             case 0:
                 setContentView(R.layout.actionbar_tab_1);
                 break;
@@ -53,16 +60,20 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         }
     }
 
+    // not using this yet
     @Override
     public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
         // Called when a tab unselected.
     }
 
+    // not using this yet
     @Override
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
 
         // Called when a tab is selected again.
     }
+
+    // not using this yet
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
