@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:textSize="22sp"
-        android:text="Home Page Tab" />
+        android:text="Home Page Tab"
+        android:id="@+id/testtext" />
 
 </LinearLayout>

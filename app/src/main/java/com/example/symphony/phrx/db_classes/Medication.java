@@ -16,7 +16,7 @@ public class Medication {
     private String administration;
     private String reason;
 
-    //set
+    //set value
     public void setId(int id) {
         this.id = id;
     }
@@ -57,7 +57,7 @@ public class Medication {
 
 
 
-    //get
+    //get value
     public int getId() {
         return id;
     }

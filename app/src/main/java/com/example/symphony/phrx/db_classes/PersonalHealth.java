@@ -27,29 +27,37 @@ public class PersonalHealth {
     public void setSystolic(int systolic) {
         this.systolic = systolic;
     }
+
     public void setDiastolic(int diastolic) {
         this.diastolic = diastolic;
     }
+
     public void setHeartRate(int heartRate) {
         this.heartRate = heartRate;
     }
+
 
     //get
     public int getId() {
         return id;
     }
+
     public double getWeight() {
         return weight;
     }
+
     public double getHeight() {
         return height;
     }
+
     public int getSystolic() {
         return systolic;
     }
+
     public int getDiastolic() {
         return diastolic;
     }
+
     public int getHeartRate() {
         return heartRate;
     }
