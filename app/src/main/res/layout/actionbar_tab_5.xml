@@ -2,15 +2,31 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#a359ff"
     android:id="@+id/actionbar_tab_5"
     android:orientation="vertical">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:textSize="22sp"
-        android:text="Allergies Tab"
-        android:id="@+id/testtext" />
+        android:text="Allergies and Reactions"
+        android:gravity="center"
+        android:id="@+id/pagetitle" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NEW RECORD"
+        android:id="@+id/newrec"
+        android:layout_gravity="center_horizontal" />
+
+    <ListView
+        android:id="@+id/allergy_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:dividerHeight="1dp"
+        android:padding="10dp" >
+    </ListView>
+
 </LinearLayout>
