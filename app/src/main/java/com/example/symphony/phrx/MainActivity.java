@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.Menu;
@@ -14,7 +15,7 @@ import android.view.MenuItem;
 // used this tutorial to help with creating tab navigation:
 // http://javarticles.com/2015/09/android-sliding-tab-layout-example.html
 
-public class MainActivity extends FragmentActivity{
+public class MainActivity extends AppCompatActivity{
 
     private ViewPager vp;
     private TabAdapter ta;
