@@ -32,11 +32,7 @@ public class PersonalHealth {
     public void setHeartRate(int heartRate) {
         this.heartRate = heartRate;
     }
-<<<<<<< HEAD
-=======
 
-
->>>>>>> origin/master
     //get
     public int getId() {
         return id;
@@ -49,7 +45,6 @@ public class PersonalHealth {
     public double getHeight() {
         return height;
     }
-
     public int getSystolic() {
         return systolic;
     }
