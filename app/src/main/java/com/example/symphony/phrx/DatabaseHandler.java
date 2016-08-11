@@ -36,7 +36,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String MED_DOSAGE = "dosage";
     private static final String MED_DOSAGE_UNIT = "dosage_unit";
     private static final String MED_FREQ = "frequency";
-    private static final String MED_FREG_INV = "frequency_interval";
+    private static final String MED_FREQ_INV = "frequency_interval";
     private static final String MED_ADMIN = "administration";
     private static final String MED_REASON = "reason";
     //immunization fields
@@ -73,7 +73,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             MED_DOSAGE + " REAL," +
             MED_DOSAGE_UNIT + " TEXT," +
             MED_FREQ + " REAL," +
-            MED_FREG_INV + " TEXT," +
+            MED_FREQ_INV + " TEXT," +
             MED_ADMIN + " TEXT," +
             MED_REASON + " TEXT" +
             ")";
@@ -134,7 +134,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(PH_WEIGHT, ph.getWeight());
         values.put(PH_HEIGHT, ph.getHeight());
         values.put(PH_SYS, ph.getSystolic());
-        values.put(PH_DIA, ph.getSystolic());
+        values.put(PH_DIA, ph.getDiastolic());
         values.put(PH_HR, ph.getHeartRate());
 
         long PersonalHealth_return = db.insert(TABLE_PERSONAL_HEALTH, null, values); //row id returned //-1 if error

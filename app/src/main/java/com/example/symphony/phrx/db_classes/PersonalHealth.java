@@ -15,15 +15,12 @@ public class PersonalHealth {
     public void setId(int id) {
         this.id = id;
     }
-
     public void setWeight(double weight) {
         this.weight = weight;
     }
-
     public void setHeight(double height) {
         this.height = height;
     }
-
     public void setSystolic(int systolic) {
         this.systolic = systolic;
     }
@@ -33,7 +30,6 @@ public class PersonalHealth {
     public void setHeartRate(int heartRate) {
         this.heartRate = heartRate;
     }
-
     //get
     public int getId() {
         return id;
