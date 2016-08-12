@@ -94,7 +94,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             ")";
     private static final String CREATE_TABLE_ALLERGY = "CREATE TABLE " + TABLE_ALLERGY +
             "(" +
-            ALL_ID + " INTEGER PRIMATE KEY AUTOINCREMENT," +
+            ALL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
             ALL_NAME + " TEXT," +
             ALL_SYM + " TEXT," +
             ALL_MEDI + " TEXT" +
