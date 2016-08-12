@@ -69,7 +69,7 @@ public class MedFormActivity extends AppCompatActivity {
     }
 
     public boolean validate(EditText[] x) {
-        for (int i = 1; 1 < x.length; i++) {
+        for (int i = 0; i < x.length; i++) {
             if (x[i].getText().toString().isEmpty()) {
                 return false;
             }
