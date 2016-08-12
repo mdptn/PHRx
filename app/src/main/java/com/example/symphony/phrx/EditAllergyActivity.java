@@ -3,6 +3,7 @@ package com.example.symphony.phrx;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.symphony.phrx.db_classes.Allergy;
@@ -13,6 +14,7 @@ import com.example.symphony.phrx.db_classes.Allergy;
 public class EditAllergyActivity extends AppCompatActivity{
 
 
+    private EditText nameT, symT, medT;
     DatabaseHandler dh;
     Allergy a;
     int aId;
@@ -42,9 +44,13 @@ public class EditAllergyActivity extends AppCompatActivity{
         TextView meds = (TextView) findViewById(R.id.editTextMed);
 
 
-        name.setText("Name: " + a.getName());
-        symptom.setText("Date: " + a.getSymptom());
-        meds.setText("Dose: " + a.getMedication());
+        name.setText(a.getName());
+        symptom.setText(a.getSymptom());
+        meds.setText(a.getMedication());
+
+        nameT = (EditText) findViewById(R.id.editTextName);
+        symT = (EditText) findViewById(R.id.editTextSymptom);
+        medT = (EditText) findViewById(R.id.editTextMed);
 
     }
 
@@ -55,11 +61,17 @@ public class EditAllergyActivity extends AppCompatActivity{
         finish();
     }
 
-    /*
+
     public void onClickUpdateButton(View v){
-        dh.editPersonalHealth(ph, phId);
+        String n = nameT.getText().toString();
+        String s = symT.getText().toString();
+        String m = medT.getText().toString();
+        a.setName(n);
+        a.setSymptom(s);
+        a.setMedication(m);
+        dh.editAllergy(a, aId);
         finish();
 
-    } */
+    }
 
 }

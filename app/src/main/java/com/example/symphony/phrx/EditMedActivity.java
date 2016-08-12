@@ -3,6 +3,7 @@ package com.example.symphony.phrx;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.symphony.phrx.db_classes.Medication;
@@ -13,6 +14,7 @@ import com.example.symphony.phrx.db_classes.Medication;
 public class EditMedActivity extends AppCompatActivity{
 
 
+    private EditText nameT, doseT, doseuT, dosageT, dosageuT, freqT, freqiT, adminT, reasonT;
     DatabaseHandler dh;
     Medication m;
     int mId;
@@ -47,17 +49,29 @@ public class EditMedActivity extends AppCompatActivity{
         TextView admin = (TextView) findViewById(R.id.editTextAdmin);
         TextView reason = (TextView) findViewById(R.id.editTextReason);
 
+        String d = String.valueOf(m.getDose());
+        String d2 = String.valueOf(m.getDosage());
+        String f = String.valueOf(m.getFrequency());
 
+        name.setText(m.getName());
+        dose.setText(d);
+        doseunit.setText(m.getDoseUnit());
+        dosage.setText(d2);
+        dosageunit.setText(m.getDosageUnit());
+        frequency.setText(f);
+        frequencyint.setText(m.getFrequencyInterval());
+        admin.setText(m.getAdministration());
+        reason.setText(m.getReason());
 
-        name.setText("Name: " + m.getName());
-        dose.setText("Dose: " + m.getDose());
-        doseunit.setText("Dose Unit: " + m.getDoseUnit());
-        dosage.setText("Dosage: " + m.getDosage());
-        dosageunit.setText("Dosage Unit: " + m.getDosageUnit());
-        frequency.setText("Frequency: " + m.getFrequency());
-        frequencyint.setText("Frequency Interval: " + m.getFrequencyInterval());
-        admin.setText("Route of Administration: " + m.getAdministration());
-        reason.setText("Reason for Taking: " + m.getReason());
+        nameT = (EditText) findViewById(R.id.editTextName);
+        doseT = (EditText) findViewById(R.id.editTextDose);
+        doseuT = (EditText) findViewById(R.id.editTextDoseUnit);
+        dosageT = (EditText) findViewById(R.id.editTextDosage);
+        dosageuT = (EditText) findViewById(R.id.editTextDosageUnit);
+        freqT = (EditText) findViewById(R.id.editTextFrequency);
+        freqiT = (EditText) findViewById(R.id.editTextFrequencyInt);
+        adminT = (EditText) findViewById(R.id.editTextAdmin);
+        reasonT = (EditText) findViewById(R.id.editTextReason);
 
 
     }
@@ -69,11 +83,29 @@ public class EditMedActivity extends AppCompatActivity{
         finish();
     }
 
-    /*
+
     public void onClickUpdateButton(View v){
-        dh.editPersonalHealth(ph, phId);
+        String n = nameT.getText().toString();
+        String du = doseuT.getText().toString();
+        String du2 = dosageuT.getText().toString();
+        String f2 = freqiT.getText().toString();
+        String a = adminT.getText().toString();
+        String r = reasonT.getText().toString();
+        double d = Double.parseDouble(doseT.getText().toString());
+        double d2 = Double.parseDouble(dosageT.getText().toString());
+        double f = Double.parseDouble(freqT.getText().toString());
+        m.setName(n);
+        m.setDose(d);
+        m.setDoseUnit(du);
+        m.setDosage(d2);
+        m.setDosageUnit(du2);
+        m.setFrequency(f);
+        m.setFrequency_interval(f2);
+        m.setAdministration(a);
+        m.setReason(r);
+        dh.editMedication(m, mId);
         finish();
 
-    } */
+    }
 
 }

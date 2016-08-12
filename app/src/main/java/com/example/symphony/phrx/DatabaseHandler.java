@@ -158,7 +158,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(PH_DIA, ph.getSystolic());
         values.put(PH_HR, ph.getHeartRate());
 
-        long PersonalHealth_returns = db.update(TABLE_PERSONAL_HEALTH, values, "_id=" + id, null);
+        long PersonalHealth_returns = db.update(TABLE_PERSONAL_HEALTH, values, "id = " + id, null);
     }
     public void deletePersonalHealth(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -243,7 +243,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(MED_ADMIN, m.getAdministration());
         values.put(MED_REASON, m.getReason());
 
-        long Medication_returns = db.update(TABLE_MEDICATION, values, "_id=" + id, null);
+        long Medication_returns = db.update(TABLE_MEDICATION, values, "id = " + id, null);
     }
     public void deleteMedication(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -326,7 +326,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(IMM_DATE, i.getDate());
         values.put(IMM_DOSE, i.getDose());
 
-        long Immunization_returns = db.update(TABLE_IMMUNIZATION, values, "_id=" + id, null);
+        long Immunization_returns = db.update(TABLE_IMMUNIZATION, values, "id = " + id, null);
     }
     public void deleteImmunization(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -395,7 +395,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(ALL_SYM, a.getSymptom());
         values.put(ALL_MEDI, a.getMedication());
 
-        long Allergy_return = db.update(TABLE_ALLERGY, values, "_id=" + id, null);
+        long Allergy_return = db.update(TABLE_ALLERGY, values, "id = " + id, null);
     }
     public void deleteAllergy(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -462,7 +462,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(CON_NAME, c.getName());
         values.put(CON_DESC, c.getDescription());
 
-        long Condition_return = db.update(TABLE_CONDITION, values, "_id=" + id, null);
+        long Condition_return = db.update(TABLE_CONDITION, values, "id = " + id, null);
     }
     public void deleteCondition(int id) {
         SQLiteDatabase db = this.getWritableDatabase();

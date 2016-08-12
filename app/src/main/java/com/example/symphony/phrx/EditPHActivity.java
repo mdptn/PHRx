@@ -3,6 +3,7 @@ package com.example.symphony.phrx;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.symphony.phrx.db_classes.PersonalHealth;
@@ -13,6 +14,7 @@ import com.example.symphony.phrx.db_classes.PersonalHealth;
 public class EditPHActivity extends AppCompatActivity{
 
 
+    private EditText weighT, heighT, sysT, diaT, hrT;
     DatabaseHandler dh;
     PersonalHealth ph;
     int phId;
@@ -43,12 +45,23 @@ public class EditPHActivity extends AppCompatActivity{
         TextView dia = (TextView) findViewById(R.id.editTextDia);
         TextView hr = (TextView) findViewById(R.id.editTextHR);
 
+        String w = String.valueOf(ph.getWeight());
+        String h = String.valueOf(ph.getHeight());
+        String s = String.valueOf(ph.getSystolic());
+        String d = String.valueOf(ph.getDiastolic());
+        String r = String.valueOf(ph.getHeartRate());
 
-        weight.setText("Weight: " + ph.getWeight());
-        height.setText("Height: " + ph.getHeight());
-        sys.setText("Systolic Blood Pressure: " + ph.getSystolic());
-        dia.setText("Diastolic Blood Pressure: " + ph.getDiastolic());
-        hr.setText("Heart Rate: " + ph.getHeartRate());
+        weight.setText(w);
+        height.setText(h);
+        sys.setText(s);
+        dia.setText(d);
+        hr.setText(r);
+
+        weighT = (EditText) findViewById(R.id.editTextWeight);
+        heighT = (EditText) findViewById(R.id.editTextHeight);
+        sysT = (EditText) findViewById(R.id.editTextSys);
+        diaT = (EditText) findViewById(R.id.editTextDia);
+        hrT = (EditText) findViewById(R.id.editTextHR);
 
 
     }
@@ -60,11 +73,22 @@ public class EditPHActivity extends AppCompatActivity{
         finish();
     }
 
-    /*
+
     public void onClickUpdateButton(View v){
+        double w = Double.parseDouble(weighT.getText().toString());
+        double h = Double.parseDouble(heighT.getText().toString());
+        int s = Integer.parseInt(sysT.getText().toString());
+        int d = Integer.parseInt(diaT.getText().toString());
+        int hr = Integer.parseInt(hrT.getText().toString());
+
+        ph.setWeight(w);
+        ph.setHeight(h);
+        ph.setSystolic(s);
+        ph.setDiastolic(d);
+        ph.setHeartRate(hr);
         dh.editPersonalHealth(ph, phId);
         finish();
 
-    } */
+    }
 
 }

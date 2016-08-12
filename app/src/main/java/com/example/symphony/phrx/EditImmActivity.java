@@ -3,6 +3,7 @@ package com.example.symphony.phrx;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.symphony.phrx.db_classes.Immunization;
@@ -13,6 +14,7 @@ import com.example.symphony.phrx.db_classes.Immunization;
 public class EditImmActivity extends AppCompatActivity{
 
 
+    private EditText nameT, dateT, doseT;
     DatabaseHandler dh;
     Immunization imm;
     int iId;
@@ -42,10 +44,15 @@ public class EditImmActivity extends AppCompatActivity{
         TextView dose = (TextView) findViewById(R.id.editTextDose);
 
 
-        name.setText("Name: " + imm.getName());
-        date.setText("Date: " + imm.getDate());
-        dose.setText("Dose: " + imm.getDose());
+        String d = String.valueOf(imm.getDose());
 
+        name.setText(imm.getName());
+        date.setText(imm.getDate());
+        dose.setText(d);
+
+        nameT = (EditText) findViewById(R.id.editTextName);
+        dateT = (EditText) findViewById(R.id.editTextDate);
+        doseT = (EditText) findViewById(R.id.editTextDose);
 
     }
 
@@ -56,11 +63,17 @@ public class EditImmActivity extends AppCompatActivity{
         finish();
     }
 
-    /*
+
     public void onClickUpdateButton(View v){
-        dh.editPersonalHealth(ph, phId);
+        String n = nameT.getText().toString();
+        String d = dateT.getText().toString();
+        int dos = Integer.parseInt(doseT.getText().toString());
+        imm.setName(n);
+        imm.setDate(d);
+        imm.setDose(dos);
+        dh.editImmunization(imm, iId);
         finish();
 
-    } */
+    }
 
 }

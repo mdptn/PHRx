@@ -3,6 +3,7 @@ package com.example.symphony.phrx;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.symphony.phrx.db_classes.Condition;
@@ -16,6 +17,7 @@ public class EditConditionActivity extends AppCompatActivity{
     DatabaseHandler dh;
     Condition c;
     int cId;
+    private EditText nameT, descT;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,11 +39,15 @@ public class EditConditionActivity extends AppCompatActivity{
     }
 
     public void editRecord(){
+
         TextView name = (TextView) findViewById(R.id.editTextName);
         TextView desc = (TextView) findViewById(R.id.editTextDescription);
 
-        name.setText("Name: " + c.getName());
-        desc.setText("Description: " + c.getDescription());
+        name.setText( c.getName());
+        desc.setText(c.getDescription());
+
+        nameT = (EditText) findViewById(R.id.editTextName);
+        descT = (EditText) findViewById(R.id.editTextDescription);
 
     }
 
@@ -52,11 +58,15 @@ public class EditConditionActivity extends AppCompatActivity{
         finish();
     }
 
-    /*
+
     public void onClickUpdateButton(View v){
-        dh.editPersonalHealth(ph, phId);
+        String n = nameT.getText().toString();
+        String d = descT.getText().toString();
+        c.setName(n);
+        c.setDescription(d);
+        dh.editCondition(c, cId);
         finish();
 
-    } */
+    }
 
 }
