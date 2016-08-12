@@ -34,7 +34,8 @@ public class PHformActivity extends AppCompatActivity{
         EditText editHeartRate = (EditText) findViewById(R.id.editTextHR);
 
         //validate
-        if (!validate(editWeight, editHeight, editSystolic, editDiastolic, editHeartRate)) {
+        EditText[] x = {editWeight, editHeight, editSystolic, editDiastolic, editHeartRate};
+        if (!validate(x)) {
             Toast toast = Toast.makeText(getApplication(), "Please fill out all fields", Toast.LENGTH_SHORT);
             toast.show();
             return;
@@ -58,9 +59,8 @@ public class PHformActivity extends AppCompatActivity{
         finish();
     }
 
-    public boolean validate(EditText a, EditText b, EditText c, EditText d, EditText e) {
-        EditText[] x = {a, b, c, d, e};
-        for (int i = 1; i < x.length; i++) {
+    public boolean validate(EditText[] x) {
+        for (int i = 1; 1 < x.length; i++) {
             if (x[i].getText().toString().isEmpty()) {
                 return false;
             }

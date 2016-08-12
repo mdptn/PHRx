@@ -10,7 +10,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:hint="Enter Name"
-        android:singleLine="true" >
+        android:singleLine="true"
+        android:inputType="text">
 
         <requestFocus />
     </EditText>
@@ -22,7 +23,8 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/editTextWeight"
         android:hint="Enter Description"
-        android:singleLine="true" />
+        android:singleLine="true"
+        android:inputType="text" />
 
 
     <Button

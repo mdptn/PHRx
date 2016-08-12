@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.symphony.phrx.db_classes.Allergy;
 
@@ -27,6 +28,13 @@ public class AllergyFormActivity extends AppCompatActivity{
         EditText editSymptom = (EditText) findViewById(R.id.editTextSymptom);
         EditText editMed = (EditText) findViewById(R.id.editTextMed);
 
+        //validate
+        EditText[] x = {editName, editSymptom, editMed};
+        if (!validate(x)) {
+            Toast toast = Toast.makeText(getApplication(), "Please fill out all fields", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
 
         // convert to strings to use for set
         String name = editName.getText().toString();
@@ -42,6 +50,15 @@ public class AllergyFormActivity extends AppCompatActivity{
 
         dh.createAllergy(a);
         finish();
+    }
+
+    public boolean validate(EditText[] x) {
+        for (int i = 1; 1 < x.length; i++) {
+            if (x[i].getText().toString().isEmpty()) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public void onPause() {
