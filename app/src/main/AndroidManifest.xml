@@ -23,5 +23,10 @@
         <activity android:name=".ImmFormActivity"></activity>
         <activity android:name=".AllergyFormActivity"></activity>
         <activity android:name=".ConditionFormActivity"></activity>
+        <activity android:name=".EditPHActivity"></activity>
+        <activity android:name=".EditMedActivity"></activity>
+        <activity android:name=".EditImmActivity"></activity>
+        <activity android:name=".EditAllergyActivity"></activity>
+        <activity android:name=".EditConditionActivity"></activity>
     </application>
 </manifest>

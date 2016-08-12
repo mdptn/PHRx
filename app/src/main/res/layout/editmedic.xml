@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/editTextName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:hint="Enter Name of Medication"
+        android:singleLine="true" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/editTextDose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:hint="Enter Dose"
+        android:singleLine="true" />
+
+    <EditText
+        android:id="@+id/editTextDoseUnit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/editTextHeight"
+        android:hint="Enter Dose Unit"
+        android:singleLine="true" />
+
+    <EditText
+        android:id="@+id/editTextDosage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/editTextSys"
+        android:hint="Enter Dosage"
+        android:singleLine="true" />
+
+    <EditText
+        android:id="@+id/editTextDosageUnit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/editTextDia"
+        android:hint="Enter Dosage Unit"
+        android:singleLine="true" />
+
+    <EditText
+        android:id="@+id/editTextFrequency"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/editTextHeight"
+        android:hint="Enter Frequency"
+        android:singleLine="true" />
+
+    <EditText
+        android:id="@+id/editTextFrequencyInt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/editTextSys"
+        android:hint="Enter Frequency interval"
+        android:singleLine="true" />
+
+    <EditText
+        android:id="@+id/editTextAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/editTextDia"
+        android:hint="Enter Route of Administration"
+        android:singleLine="true" />
+
+
+    <EditText
+        android:id="@+id/editTextReason"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/editTextHeight"
+        android:hint="Enter Reason for taking"
+        android:singleLine="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UPDATE"
+        android:id="@+id/updateButton"
+        android:layout_alignParentBottom="true"
+        android:onClick="onClickUpdateButton"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DELETE"
+        android:id="@+id/deleteButton"
+        android:layout_alignParentBottom="true"
+        android:onClick="onClickDeleteButton"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout>

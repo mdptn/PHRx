@@ -18,6 +18,11 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity{
 
+    public static int phId;
+    public static int mId;
+    public static int iId;
+    public static int aId;
+    public static int cId;
     private ViewPager vp;
     private TabAdapter ta;
     private Tab_Layout tl;
@@ -54,6 +59,8 @@ public class MainActivity extends AppCompatActivity{
         });
     }
 
+
+    // onClick for NEW RECORD buttons
     public void onClickNewRecord1Button(View v){
         Intent intent = new Intent(MainActivity.this, PHformActivity.class);
         startActivity(intent);
@@ -83,6 +90,38 @@ public class MainActivity extends AppCompatActivity{
         startActivity(intent);
 
     }
+
+    // onClick for editing records
+    public void onClickEdit1(View v) {
+        phId = v.getId();
+        Intent intent = new Intent(MainActivity.this, EditPHActivity.class);
+        startActivity(intent);
+    }
+
+    public void onClickEdit2(View v) {
+        mId = v.getId();
+        Intent intent = new Intent(MainActivity.this, EditMedActivity.class);
+        startActivity(intent);
+    }
+
+    public void onClickEdit3(View v) {
+        iId = v.getId();
+        Intent intent = new Intent(MainActivity.this, EditImmActivity.class);
+        startActivity(intent);
+    }
+
+    public void onClickEdit4(View v) {
+        aId = v.getId();
+        Intent intent = new Intent(MainActivity.this, EditAllergyActivity.class);
+        startActivity(intent);
+    }
+
+    public void onClickEdit5(View v) {
+        cId = v.getId();
+        Intent intent = new Intent(MainActivity.this, EditConditionActivity.class);
+        startActivity(intent);
+    }
+
 
 
 }
