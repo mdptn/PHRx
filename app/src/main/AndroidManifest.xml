@@ -16,6 +16,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".PHformActivity"></activity>
+        <activity android:name=".MedFormActivity"></activity>
+        <activity android:name=".ImmFormActivity"></activity>
+        <activity android:name=".AllergyFormActivity"></activity>
+        <activity android:name=".ConditionFormActivity"></activity>
     </application>
 
 </manifest>

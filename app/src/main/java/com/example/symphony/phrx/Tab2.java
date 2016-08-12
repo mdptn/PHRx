@@ -52,12 +52,6 @@ public class Tab2 extends Fragment{
         PHArrayAdapter ad = new PHArrayAdapter(getActivity(), phl);
         listview.setAdapter(ad);
     }
-/*
-    public void onClickNewRecordButton(View v){
-        Intent intent = new Intent(v.getContext(), PHformActivity.class);
-        startActivity(intent);
-    }
-*/
 
 }
 

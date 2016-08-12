@@ -53,11 +53,6 @@ public class Tab5 extends Fragment{
         listview.setAdapter(ad);
     }
 
-    public void onClickNewRecordButton(View v){
-        Intent intent = new Intent(v.getContext(), AllergyFormActivity.class);
-        startActivity(intent);
-
-    }
 
 
 }

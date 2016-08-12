@@ -15,7 +15,7 @@ public class MedFormActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.healthform);
+        setContentView(R.layout.medform);
     }
 
     public void onClickAdd(View v){

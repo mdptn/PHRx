@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:text="NEW RECORD"
         android:id="@+id/newrec"
-        android:onClick="onClickNewRecord"
+        android:onClick="onClickNewRecord2Button"
         android:layout_gravity="center_horizontal" />
 
     <ListView

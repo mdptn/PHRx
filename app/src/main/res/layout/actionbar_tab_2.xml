@@ -20,7 +20,7 @@
         android:text="NEW RECORD"
         android:id="@+id/newrec"
         android:layout_gravity="center_horizontal"
-        android:onClick="onClickNewRecordButton" />
+        android:onClick="onClickNewRecord1Button" />
 
     <ListView
         android:id="@+id/health_list"

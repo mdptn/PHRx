@@ -54,9 +54,34 @@ public class MainActivity extends AppCompatActivity{
         });
     }
 
-    public void onClickNewRecordButton(View v){
+    public void onClickNewRecord1Button(View v){
         Intent intent = new Intent(MainActivity.this, PHformActivity.class);
         startActivity(intent);
+    }
+
+
+    public void onClickNewRecord2Button(View v){
+        Intent intent = new Intent(v.getContext(), MedFormActivity.class);
+        startActivity(intent);
+
+    }
+
+    public void onClickNewRecord3Button(View v){
+        Intent intent = new Intent(v.getContext(), ImmFormActivity.class);
+        startActivity(intent);
+
+    }
+
+    public void onClickNewRecord4Button(View v){
+        Intent intent = new Intent(v.getContext(), AllergyFormActivity.class);
+        startActivity(intent);
+
+    }
+
+    public void onClickNewRecord5Button(View v){
+        Intent intent = new Intent(v.getContext(), ConditionFormActivity.class);
+        startActivity(intent);
+
     }
 
 

@@ -53,12 +53,6 @@ public class Tab3 extends Fragment{
         listview.setAdapter(ad);
     }
 
-    public void onClickNewRecordButton(View v){
-        Intent intent = new Intent(v.getContext(), MedFormActivity.class);
-        startActivity(intent);
-
-    }
-
 
 }
 
