@@ -4,8 +4,12 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.symphony.phrx.db_classes.PersonalHealth;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Megan on 8/12/2016.
@@ -29,6 +33,13 @@ public class PHformActivity extends AppCompatActivity{
         EditText editDiastolic = (EditText) findViewById(R.id.editTextDia);
         EditText editHeartRate = (EditText) findViewById(R.id.editTextHR);
 
+        //validate
+        if (!validate(editWeight, editHeight, editSystolic, editDiastolic, editHeartRate)) {
+            Toast toast = Toast.makeText(getApplication(), "Please fill out all fields", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
+
         // convert to strings to use for set
         double w = Double.parseDouble(editWeight.getText().toString());
         double h = Double.parseDouble(editHeight.getText().toString());
@@ -45,6 +56,16 @@ public class PHformActivity extends AppCompatActivity{
 
         dh.createPersonalHealth(ph);
         finish();
+    }
+
+    public boolean validate(EditText a, EditText b, EditText c, EditText d, EditText e) {
+        EditText[] x = {a, b, c, d, e};
+        for (int i = 1; i < x.length; i++) {
+            if (x[i].getText().toString().isEmpty()) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public void onPause() {

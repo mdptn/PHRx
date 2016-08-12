@@ -168,7 +168,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public PersonalHealth getPersonalHealth(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
-        String selectQuery = "SELECT * FROM " + TABLE_PERSONAL_HEALTH + " WHERE" + PH_ID + " = " + id;
+        String selectQuery = "SELECT * FROM " + TABLE_PERSONAL_HEALTH + " WHERE " + PH_ID + " = " + id;
         Cursor c = db.rawQuery(selectQuery, null);
         if (c != null) {
             c.moveToFirst();
@@ -253,7 +253,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public Medication getMedication(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
-        String selectQuery = "SELECT * FROM " + TABLE_MEDICATION + " WHERE" + MED_ID + " = " + id;
+        String selectQuery = "SELECT * FROM " + TABLE_MEDICATION + " WHERE " + MED_ID + " = " + id;
         Cursor c = db.rawQuery(selectQuery, null);
         if (c != null) {
             c.moveToFirst();

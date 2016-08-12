@@ -9,8 +9,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:hint="Enter Height"
-        android:singleLine="true" >
+        android:hint="Enter Weight"
+        android:singleLine="true"
+        android:inputType="number|numberDecimal">
 
         <requestFocus />
     </EditText>
@@ -22,7 +23,8 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/editTextWeight"
         android:hint="Enter Height"
-        android:singleLine="true" />
+        android:singleLine="true"
+        android:inputType="number|numberDecimal" />
 
     <EditText
         android:id="@+id/editTextSys"
@@ -31,7 +33,8 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/editTextHeight"
         android:hint="Enter Systolic Blood Pressure"
-        android:singleLine="true" />
+        android:singleLine="true"
+        android:inputType="number" />
 
     <EditText
         android:id="@+id/editTextDia"
@@ -40,7 +43,8 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/editTextSys"
         android:hint="Enter Diastolic Blood Pressure"
-        android:singleLine="true" />
+        android:singleLine="true"
+        android:inputType="number" />
 
     <EditText
         android:id="@+id/editTextHR"
@@ -49,7 +53,8 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/editTextDia"
         android:hint="Enter Heart Rate"
-        android:singleLine="true" />
+        android:singleLine="true"
+        android:inputType="number" />
 
     <Button
         android:layout_width="wrap_content"
