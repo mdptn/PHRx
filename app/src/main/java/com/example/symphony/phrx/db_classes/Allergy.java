@@ -3,7 +3,7 @@ package com.example.symphony.phrx.db_classes;
 /**
  * Created by Megan on 8/10/2016.
  */
-public class Allergies {
+public class Allergy {
 
     private int id;
     private String name;
@@ -21,10 +21,9 @@ public class Allergies {
         this.symptom = symptom;
     }
 
-    public void setMeds(String medication) {
+    public void setMedication(String medication) {
         this.medication = medication;
     }
-
 
     //get
     public int getId() {
@@ -39,7 +38,7 @@ public class Allergies {
         return symptom;
     }
 
-    public String getMeds() {
+    public String getMedication() {
         return medication;
     }
 }

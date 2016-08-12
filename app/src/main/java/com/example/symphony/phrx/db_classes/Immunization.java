@@ -25,7 +25,6 @@ public class Immunization {
         this.dose = dose;
     }
 
-
     //get
     public int getId() {
         return id;

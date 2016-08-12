@@ -7,11 +7,11 @@ public class Medication {
 
     private int id;
     private String name;
-    private int dose;
+    private double dose;
     private String dose_unit;
-    private int dosage;
+    private double dosage;
     private String dosage_unit;
-    private int frequency;
+    private double frequency;
     private String frequency_interval;
     private String administration;
     private String reason;
@@ -25,7 +25,7 @@ public class Medication {
         this.name = name;
     }
 
-    public void setDose(int dose) {
+    public void setDose(double dose) {
         this.dose = dose;
     }
 
@@ -33,7 +33,7 @@ public class Medication {
         this.dose_unit = dose_unit;
     }
 
-    public void setDosage(int dosage) {
+    public void setDosage(double dosage) {
         this.dosage = dosage;
     }
 
@@ -41,7 +41,7 @@ public class Medication {
         this.dosage_unit = dosage_unit;
     }
 
-    public void setFrequency(int frequency){ this.frequency = frequency;}
+    public void setFrequency(double frequency){ this.frequency = frequency;}
 
     public void setFrequency_interval(String frequency_interval) {
         this.frequency_interval = frequency_interval;
@@ -55,8 +55,6 @@ public class Medication {
         this.reason = reason;
     }
 
-
-
     //get value
     public int getId() {
         return id;
@@ -66,7 +64,7 @@ public class Medication {
         return name;
     }
 
-    public int getDose() {
+    public double getDose() {
         return dose;
     }
 
@@ -74,7 +72,7 @@ public class Medication {
         return dose_unit;
     }
 
-    public int getDosage() {
+    public double getDosage() {
         return dosage;
     }
 
@@ -82,7 +80,7 @@ public class Medication {
         return dosage_unit;
     }
 
-    public int getFrequency(){ return frequency;}
+    public double getFrequency(){ return frequency;}
 
     public String getFrequencyInterval(){ return frequency_interval;}
 

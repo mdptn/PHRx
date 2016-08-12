@@ -3,7 +3,7 @@ package com.example.symphony.phrx.db_classes;
 /**
  * Created by Megan on 8/10/2016.
  */
-public class Conditions {
+public class Condition {
 
     private int id;
     private String name;
