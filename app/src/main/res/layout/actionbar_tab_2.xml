@@ -19,8 +19,8 @@
         android:layout_height="wrap_content"
         android:text="NEW RECORD"
         android:id="@+id/newrec"
-        android:onClick="onClickNewRecord"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:onClick="onClickNewRecordButton" />
 
     <ListView
         android:id="@+id/health_list"

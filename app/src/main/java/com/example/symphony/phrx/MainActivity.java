@@ -2,6 +2,7 @@ package com.example.symphony.phrx;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
@@ -9,7 +10,7 @@ import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import android.view.View;
 
 
 // used this tutorial to help with creating tab navigation:
@@ -51,7 +52,11 @@ public class MainActivity extends AppCompatActivity{
             public void onTabReselected(TabLayout.Tab tab) {
             }
         });
+    }
 
+    public void onClickNewRecordButton(View v){
+        Intent intent = new Intent(MainActivity.this, PHformActivity.class);
+        startActivity(intent);
     }
 
 
