@@ -377,7 +377,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     //allergy
-    public void createAllery(Allergy a) {
+    public void createAllergy(Allergy a) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();

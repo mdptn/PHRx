@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textWeight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Weight:"
+        android:singleLine="true" />
+
+    <TextView
+        android:id="@+id/textHeight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textWeight"
+        android:text="Height:"
+        android:singleLine="true" />
+
+    <TextView
+        android:id="@+id/textSys"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textHeight"
+        android:text="Systolic Blood Pressure:"
+        android:singleLine="true" />
+
+    <TextView
+        android:id="@+id/textDia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textSys"
+        android:text="Diastolic Blood Pressure:"
+        android:singleLine="true" />
+
+    <TextView
+        android:id="@+id/textHR"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textDia"
+        android:text="Heart Rate:"
+        android:singleLine="true" />
+
+
+
+</LinearLayout>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Name:"
+        android:singleLine="true" />
+
+    <TextView
+        android:id="@+id/textDose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textWeight"
+        android:text="Dose:"
+        android:singleLine="true" />
+
+    <TextView
+        android:id="@+id/textDoseUnit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textWeight"
+        android:text="Dose Unit:"
+        android:singleLine="true" />
+
+    <TextView
+        android:id="@+id/textDosage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textHeight"
+        android:text="Dosage:"
+        android:singleLine="true" />
+
+    <TextView
+        android:id="@+id/textDosageUnit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textWeight"
+        android:text="Dosage Unit:"
+        android:singleLine="true" />
+
+    <TextView
+        android:id="@+id/textFrequency"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textSys"
+        android:text="Frequency:"
+        android:singleLine="true" />
+
+    <TextView
+        android:id="@+id/textFrequencyInt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textSys"
+        android:text="Frequency Interval:"
+        android:singleLine="true" />
+
+    <TextView
+        android:id="@+id/textAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textDia"
+        android:text="Route of Administration:"
+        android:singleLine="true" />
+
+    <TextView
+        android:id="@+id/textReason"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textDia"
+        android:text="Reason:"
+        android:singleLine="true" />
+
+
+
+</LinearLayout>
