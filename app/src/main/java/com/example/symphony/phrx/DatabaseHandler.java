@@ -155,7 +155,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(PH_WEIGHT, ph.getWeight());
         values.put(PH_HEIGHT, ph.getHeight());
         values.put(PH_SYS, ph.getSystolic());
-        values.put(PH_DIA, ph.getSystolic());
+        values.put(PH_DIA, ph.getDiastolic());
         values.put(PH_HR, ph.getHeartRate());
 
         long PersonalHealth_returns = db.update(TABLE_PERSONAL_HEALTH, values, "id = " + id, null);
