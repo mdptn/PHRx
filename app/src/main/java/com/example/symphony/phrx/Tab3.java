@@ -49,6 +49,7 @@ public class Tab3 extends Fragment{
     public void displayMed(){
         med = dh.getAllMedication();
         ListView listview = (ListView) getView().findViewById(R.id.medic_list);
+        listview.setEmptyView(getView().findViewById(R.id.empty));
         MedArrayAdapter ad = new MedArrayAdapter(getActivity(), med);
         listview.setAdapter(ad);
     }

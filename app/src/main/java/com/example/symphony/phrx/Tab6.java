@@ -49,6 +49,7 @@ public class Tab6 extends Fragment{
     public void displayCondition(){
         c = dh.getAllCondition();
         ListView listview = (ListView) getView().findViewById(R.id.condition_list);
+        listview.setEmptyView(getView().findViewById(R.id.empty));
         ConditionArrayAdapter ad = new ConditionArrayAdapter(getActivity(), c);
         listview.setAdapter(ad);
     }

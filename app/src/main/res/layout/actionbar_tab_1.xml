@@ -7,13 +7,30 @@
     android:weightSum="1">
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="232dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:textSize="22sp"
         android:text="Summary"
-        android:gravity="center"
-        android:id="@+id/pagetitle" />
+        android:gravity="center_horizontal"
+        android:id="@+id/pagetitle"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Welcome! To get started, tap or swipe to the next tabs to enter your personal data."
+        android:id="@+id/prompt"
+        android:layout_gravity="center_horizontal" />
+
+    <ListView
+        android:id="@+id/summary_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:dividerHeight="1dp"
+        android:padding="10dp" >
+    </ListView>
+
 
 
 </LinearLayout>

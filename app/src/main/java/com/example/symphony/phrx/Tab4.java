@@ -49,6 +49,7 @@ public class Tab4 extends Fragment{
     public void displayImm(){
         imm = dh.getAllImmunization();
         ListView listview = (ListView) getView().findViewById(R.id.immune_list);
+        listview.setEmptyView(getView().findViewById(R.id.empty));
         ImmArrayAdapter ad = new ImmArrayAdapter(getActivity(), imm);
         listview.setAdapter(ad);
     }

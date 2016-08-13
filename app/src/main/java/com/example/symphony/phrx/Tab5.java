@@ -49,6 +49,7 @@ public class Tab5 extends Fragment{
     public void displayAllergy(){
         a = dh.getAllAlergy();
         ListView listview = (ListView) getView().findViewById(R.id.allergy_list);
+        listview.setEmptyView(getView().findViewById(R.id.empty));
         AllergyArrayAdapter ad = new AllergyArrayAdapter(getActivity(), a);
         listview.setAdapter(ad);
     }

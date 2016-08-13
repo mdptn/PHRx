@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.database.DatabaseUtils;
 
 import com.example.symphony.phrx.db_classes.Allergy;
 import com.example.symphony.phrx.db_classes.Condition;
@@ -509,4 +510,5 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         db.delete(TABLE_CONDITION, null, null);
     }
+
 }

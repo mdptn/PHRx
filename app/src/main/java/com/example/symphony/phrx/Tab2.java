@@ -49,6 +49,7 @@ public class Tab2 extends Fragment{
     public void displayPH(){
         phl = dh.getAllPersonalHealth();
         ListView listview = (ListView) getView().findViewById(R.id.health_list);
+        listview.setEmptyView(getView().findViewById(R.id.empty));
         PHArrayAdapter ad = new PHArrayAdapter(getActivity(), phl);
         listview.setAdapter(ad);
     }
