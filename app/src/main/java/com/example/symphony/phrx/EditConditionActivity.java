@@ -1,5 +1,6 @@
 package com.example.symphony.phrx;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -43,7 +44,7 @@ public class EditConditionActivity extends AppCompatActivity{
         TextView name = (TextView) findViewById(R.id.editTextName);
         TextView desc = (TextView) findViewById(R.id.editTextDescription);
 
-        name.setText( c.getName());
+        name.setText(c.getName());
         desc.setText(c.getDescription());
 
         nameT = (EditText) findViewById(R.id.editTextName);
@@ -68,5 +69,6 @@ public class EditConditionActivity extends AppCompatActivity{
         finish();
 
     }
+
 
 }

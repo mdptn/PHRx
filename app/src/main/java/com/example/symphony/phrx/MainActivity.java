@@ -5,6 +5,7 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
@@ -36,13 +37,24 @@ public class MainActivity extends AppCompatActivity{
         vp = (ViewPager) findViewById(R.id.viewpager_main);
         tl = (Tab_Layout) findViewById(R.id.tab_layout);
 
-        ta = new TabAdapter(getSupportFragmentManager());
-        vp.setAdapter(ta);
+        FragmentManager fragm = getSupportFragmentManager();
+        TabAdapter taba = new TabAdapter(fragm);
+        vp.setAdapter(taba);
 
-        // create tabs method
-        tl.createTabs();
+        tl.setupWithViewPager(vp);
+        vp.addOnPageChangeListener(new Tab_Layout.TabLayoutOnPageChangeListener(tl));
+        //tl.setTabsFromPagerAdapter(taba);
 
-        tl.setOnTabSelectedListener(new Tab_Layout.OnTabSelectedListener(){
+        //set tab icons
+        tl.getTabAt(0).setIcon(R.drawable.hometab);
+        tl.getTabAt(1).setIcon(R.drawable.personaltab);
+        tl.getTabAt(2).setIcon(R.drawable.medictab);
+        tl.getTabAt(3).setIcon(R.drawable.immunetab);
+        tl.getTabAt(4).setIcon(R.drawable.allergytab);
+        tl.getTabAt(5).setIcon(R.drawable.conditiontab);
+
+
+        tl.addOnTabSelectedListener(new Tab_Layout.OnTabSelectedListener(){
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 vp.setCurrentItem(tab.getPosition());

@@ -7,6 +7,7 @@ package com.example.symphony.phrx;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.annotation.DrawableRes;
 import android.util.SparseArray;
 import android.view.ViewGroup;
 
@@ -42,4 +43,6 @@ public class TabAdapter extends FragmentStatePagerAdapter {
         // returns the number of tabs
         return 6;
     }
+
+
 }
