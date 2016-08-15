@@ -23,14 +23,12 @@
         android:id="@+id/prompt"
         android:layout_gravity="center_horizontal" />
 
-    <ListView
-        android:id="@+id/summary_list"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:dividerHeight="1dp"
-        android:padding="10dp" >
-    </ListView>
-
+        android:layout_height="match_parent"
+        android:id="@+id/textViewSum"
+        android:textSize="24dp"
+        android:textAlignment="center" />
 
 
 </LinearLayout>
