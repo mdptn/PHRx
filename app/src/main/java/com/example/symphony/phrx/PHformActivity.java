@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.symphony.phrx.db_classes.PersonalHealth;
@@ -25,6 +26,11 @@ public class PHformActivity extends AppCompatActivity{
     public void onClickAdd(View v){
         DatabaseHandler dh = new DatabaseHandler(this);
         PersonalHealth ph = new PersonalHealth();
+
+        Spinner wspin = (Spinner) findViewById(R.id.weightUnit);
+        String wunit = wspin.getSelectedItem().toString();
+        Spinner hspin = (Spinner) findViewById(R.id.heightUnit);
+        String hunit = hspin.getSelectedItem().toString();
 
         // form fields
         EditText editWeight = (EditText) findViewById(R.id.editTextWeight);
@@ -50,7 +56,9 @@ public class PHformActivity extends AppCompatActivity{
 
         // set in the database
         ph.setWeight(w);
+        ph.setWeightUnit(wunit);
         ph.setHeight(h);
+        ph.setHeightUnit(hunit);
         ph.setSystolic(s);
         ph.setDiastolic(d);
         ph.setHeartRate(hr);

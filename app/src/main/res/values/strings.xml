@@ -6,4 +6,12 @@
     <string name="immune">Immunizations</string>
     <string name="allergy">Allergies and Reactions</string>
     <string name="condition">Pre-Existing Conditions</string>
+    <string-array name="weight_types">
+        <item>Kilograms</item>
+        <item>Pounds</item>
+    </string-array>
+    <string-array name="height_types">
+        <item>Centimeters</item>
+        <item>Inches</item>
+    </string-array>
 </resources>

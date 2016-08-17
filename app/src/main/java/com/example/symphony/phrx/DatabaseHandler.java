@@ -33,7 +33,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     //personal health fields
     private static final String PH_ID = "id";
     private static final String PH_WEIGHT = "weight";
+    private static final String PH_WEIGHT_UNIT = "weight_unit";
     private static final String PH_HEIGHT = "height";
+    private static final String PH_HEIGHT_UNIT = "height_unit";
     private static final String PH_SYS = "systolic";
     private static final String PH_DIA = "diastolic";
     private static final String PH_HR = "heart_rate";
@@ -68,7 +70,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             "(" +
             PH_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
             PH_WEIGHT + " REAL," +
+            PH_WEIGHT_UNIT + " TEXT NOT NULL," +
             PH_HEIGHT + " REAL," +
+            PH_HEIGHT_UNIT + " TEXT NOT NULL," +
             PH_SYS + " INT," +
             PH_DIA + " INT," +
             PH_HR + " INT" +
@@ -141,7 +145,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         values.put(PH_WEIGHT, ph.getWeight());
+        values.put(PH_WEIGHT_UNIT, ph.getWeightUnit());
         values.put(PH_HEIGHT, ph.getHeight());
+        values.put(PH_HEIGHT_UNIT, ph.getHeightUnit());
         values.put(PH_SYS, ph.getSystolic());
         values.put(PH_DIA, ph.getDiastolic());
         values.put(PH_HR, ph.getHeartRate());
@@ -177,7 +183,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         PersonalHealth ph = new PersonalHealth();
         ph.setId(c.getInt(c.getColumnIndex(PH_ID)));
+        ph.setHeightUnit(c.getString(c.getColumnIndex(PH_HEIGHT_UNIT)));
         ph.setHeight(c.getDouble(c.getColumnIndex(PH_HEIGHT)));
+        ph.setWeightUnit(c.getString(c.getColumnIndex(PH_WEIGHT_UNIT)));
         ph.setWeight(c.getDouble(c.getColumnIndex(PH_WEIGHT)));
         ph.setSystolic(c.getInt(c.getColumnIndex(PH_SYS)));
         ph.setDiastolic(c.getInt(c.getColumnIndex(PH_DIA)));
@@ -196,7 +204,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             do {
                 PersonalHealth ph = new PersonalHealth();
                 ph.setId(c.getInt(c.getColumnIndex(PH_ID)));
+                ph.setHeightUnit(c.getString(c.getColumnIndex(PH_HEIGHT_UNIT)));
                 ph.setHeight(c.getDouble(c.getColumnIndex(PH_HEIGHT)));
+                ph.setWeightUnit(c.getString(c.getColumnIndex(PH_WEIGHT_UNIT)));
                 ph.setWeight(c.getDouble(c.getColumnIndex(PH_WEIGHT)));
                 ph.setSystolic(c.getInt(c.getColumnIndex(PH_SYS)));
                 ph.setDiastolic(c.getInt(c.getColumnIndex(PH_DIA)));

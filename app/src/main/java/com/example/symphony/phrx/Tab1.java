@@ -88,6 +88,7 @@ public class Tab1 extends Fragment{
         List<Allergy> a = dh.getAllAlergy();
         List<Condition> c = dh.getAllCondition();
 
+
         String ml = "";
         if (m.size() == 0) {
             ml = "no medication";
@@ -104,9 +105,45 @@ public class Tab1 extends Fragment{
 
         } else {
             PersonalHealth pl = p.get(p.size() - 1);
-            x = "Here are your last Records\nWeight: " + pl.getWeight() +
-                    "\nHeight: " + pl.getHeight() + "\nBlood Pressure: "  + pl.getSystolic() +
-                    "/" + pl.getDiastolic() + "\nYou are also taking: " + ml;
+
+            //calculating BMI-----------------------------------------------------------------------
+            String wunit = pl.getWeightUnit();
+            String hunit = pl.getHeightUnit();
+            double theHeight = pl.getHeight();
+            double theWeight = pl.getWeight();
+            double BMI;
+
+            //check if weight unit is kg
+            if(wunit.equals("Kilograms") == true){
+                if(hunit.equals("Centimeters") == true){ // calc BMI for kg/cm
+                    theHeight = theHeight/100;
+                    theHeight = theHeight*theHeight;
+                    BMI = theWeight/theHeight;
+                } else { // calc BMI for kg/inch
+                    theHeight = theHeight * 2.54;
+                    theHeight = theHeight/100;
+                    theHeight = theHeight*theHeight;
+                    BMI = theWeight/theHeight;
+                }
+            } else{
+                if(hunit.equals("Inches") == true){ // calc BMI for lb/inch
+                    theHeight = theHeight*theHeight;
+                    BMI = theWeight/theHeight*703;
+
+                } else{ // calc BMI for lb/cm
+                    theWeight = theWeight*0.45359237;
+                    theHeight = theHeight/100;
+                    theHeight = theHeight*theHeight;
+                    BMI = theWeight/theHeight;
+
+                }
+            }
+            //--------------------------------------------------------------------------------------
+
+
+            x = "Here are your last Records\n\nWeight: " + pl.getWeight() + " " + pl.getWeightUnit() +
+                    "\nHeight: " + pl.getHeight() + " " + pl.getHeightUnit() + "\nYour BMI is " + BMI + "." + "\nBlood Pressure: "  + pl.getSystolic() +
+                    "/" + pl.getDiastolic() + " mm Hg" + "\nYou are also taking: " + ml;
         }
 
         TextView display = (TextView) getView().findViewById(R.id.textViewSum);

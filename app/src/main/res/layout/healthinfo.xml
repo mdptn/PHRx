@@ -23,21 +23,12 @@
         android:singleLine="true" />
 
     <TextView
-        android:id="@+id/textSys"
+        android:id="@+id/textBlood"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/textHeight"
-        android:text="Systolic Blood Pressure:"
-        android:singleLine="true" />
-
-    <TextView
-        android:id="@+id/textDia"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textSys"
-        android:text="Diastolic Blood Pressure:"
+        android:text="Blood Pressure:"
         android:singleLine="true" />
 
     <TextView

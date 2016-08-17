@@ -6,7 +6,9 @@ package com.example.symphony.phrx.db_classes;
 public class PersonalHealth {
     private int id;
     private double weight;
+    private String weight_unit;
     private double height;
+    private String height_unit;
     private int systolic;
     private int diastolic;
     private int heartRate;
@@ -18,8 +20,14 @@ public class PersonalHealth {
     public void setWeight(double weight) {
         this.weight = weight;
     }
+    public void setWeightUnit(String weight_unit) {
+        this.weight_unit = weight_unit;
+    }
     public void setHeight(double height) {
         this.height = height;
+    }
+    public void setHeightUnit(String height_unit) {
+        this.height_unit = height_unit;
     }
     public void setSystolic(int systolic) {
         this.systolic = systolic;
@@ -41,9 +49,14 @@ public class PersonalHealth {
     public double getWeight() {
         return weight;
     }
-
+    public String getWeightUnit() {
+        return weight_unit;
+    }
     public double getHeight() {
         return height;
+    }
+    public String getHeightUnit() {
+        return height_unit;
     }
     public int getSystolic() {
         return systolic;

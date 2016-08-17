@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingBottom="20dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingTop="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Weight:"
+        android:textSize="20dp"
+        android:textColor="#000000"
+        android:id="@+id/textWeight"
+        android:layout_gravity="left" />
 
     <EditText
         android:id="@+id/editTextWeight"
@@ -9,12 +22,31 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:hint="Enter Weight"
+        android:hint="Enter a value 0-1000"
         android:singleLine="true"
-        android:inputType="number|numberDecimal">
+        android:inputType="number|numberDecimal"
+        android:layout_gravity="center_horizontal">
 
         <requestFocus />
     </EditText>
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:entries="@array/weight_types"
+        android:spinnerMode="dropdown"
+        android:layout_gravity="left"
+        android:paddingBottom="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Height:"
+        android:textSize="20dp"
+        android:textColor="#000000"
+        android:id="@+id/textHeight"
+        android:layout_gravity="left" />
 
     <EditText
         android:id="@+id/editTextHeight"
@@ -22,17 +54,34 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/editTextWeight"
-        android:hint="Enter Height"
+        android:hint="Enter a value 0-300"
         android:singleLine="true"
         android:inputType="number|numberDecimal" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textHeightType"
+        android:layout_centerHorizontal="true"
+        android:entries="@array/height_types"
+        android:spinnerMode="dropdown"
+        android:paddingBottom="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Blood Pressure (mm Hg):"
+        android:textSize="20dp"
+        android:textColor="#000000"
+        android:id="@+id/textBP"
+        android:layout_gravity="left" />
 
     <EditText
         android:id="@+id/editTextSys"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/editTextHeight"
-        android:hint="Enter Systolic Blood Pressure"
+        android:hint="Enter Systolic Blood Pressure from 0-200"
         android:singleLine="true"
         android:inputType="number" />
 
@@ -42,9 +91,19 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/editTextSys"
-        android:hint="Enter Diastolic Blood Pressure"
+        android:hint="Enter Diastolic Blood Pressure from 0-200"
         android:singleLine="true"
         android:inputType="number" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Heart Rate (beats per minute):"
+        android:textSize="20dp"
+        android:id="@+id/textHR"
+        android:textColor="#000000"
+        android:layout_gravity="left"
+        android:paddingTop="10dp"/>
 
     <EditText
         android:id="@+id/editTextHR"
@@ -52,7 +111,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/editTextDia"
-        android:hint="Enter Heart Rate"
+        android:hint="Enter a value 0-200"
         android:singleLine="true"
         android:inputType="number" />
 

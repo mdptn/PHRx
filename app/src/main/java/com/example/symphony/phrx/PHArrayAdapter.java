@@ -33,19 +33,17 @@ public class PHArrayAdapter extends ArrayAdapter<PersonalHealth>{
 
         TextView weight = (TextView) view.findViewById(R.id.textWeight);
         TextView height = (TextView) view.findViewById(R.id.textHeight);
-        TextView systolic = (TextView) view.findViewById(R.id.textSys);
-        TextView diastolic = (TextView) view.findViewById(R.id.textDia);
+        TextView blood = (TextView) view.findViewById(R.id.textBlood);
         TextView heartrate = (TextView) view.findViewById(R.id.textHR);
 
         // convert weight and height to string to use for setText
         String w = String.valueOf(ph.getWeight());
         String h = String.valueOf(ph.getHeight());
 
-        weight.setText("Weight: " + w);
-        height.setText("Height: " + h);
-        systolic.setText("Systolic Blood Pressure: " + ph.getSystolic());
-        diastolic.setText("Diastolic Blood Pressure: " + ph.getDiastolic());
-        heartrate.setText("Heart Rate: " + ph.getHeartRate());
+        weight.setText("Weight: " + w + " " + ph.getWeightUnit());
+        height.setText("Height: " + h + " " + ph.getHeightUnit());
+        blood.setText("Blood Pressure: " + ph.getSystolic() + "/" + ph.getDiastolic() + " mm Hg");
+        heartrate.setText("Heart Rate: " + ph.getHeartRate() + " bpm");
         view.setId(ph.getId());
 
         return view;
