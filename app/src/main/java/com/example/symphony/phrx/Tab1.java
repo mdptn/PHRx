@@ -19,6 +19,7 @@ import com.example.symphony.phrx.db_classes.Immunization;
 import com.example.symphony.phrx.db_classes.Medication;
 import com.example.symphony.phrx.db_classes.PersonalHealth;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 
@@ -112,6 +113,7 @@ public class Tab1 extends Fragment{
             double theHeight = pl.getHeight();
             double theWeight = pl.getWeight();
             double BMI;
+            DecimalFormat onePlace = new DecimalFormat("#,##0.0");
 
             //check if weight unit is kg
             if(wunit.equals("Kilograms") == true){
@@ -142,7 +144,7 @@ public class Tab1 extends Fragment{
 
 
             x = "Here are your last Records\n\nWeight: " + pl.getWeight() + " " + pl.getWeightUnit() +
-                    "\nHeight: " + pl.getHeight() + " " + pl.getHeightUnit() + "\nYour BMI is " + BMI + "." + "\nBlood Pressure: "  + pl.getSystolic() +
+                    "\nHeight: " + pl.getHeight() + " " + pl.getHeightUnit() + "\nYour BMI is " + onePlace.format(BMI) + "." + "\nBlood Pressure: "  + pl.getSystolic() +
                     "/" + pl.getDiastolic() + " mm Hg" + "\nYou are also taking: " + ml;
         }
 
