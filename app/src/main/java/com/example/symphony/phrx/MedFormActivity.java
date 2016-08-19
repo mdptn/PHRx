@@ -49,6 +49,24 @@ public class MedFormActivity extends AppCompatActivity {
             return;
         }
 
+        if (!validateDose(x)) {
+            Toast toast = Toast.makeText(getApplication(), "Please enter both a dose and unit", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
+
+        if (!validateDosage(x)) {
+            Toast toast = Toast.makeText(getApplication(), "Please enter both a dosage and unit", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
+
+        if (!validateFrequency(x)) {
+            Toast toast = Toast.makeText(getApplication(), "Please enter both a frequency and unit", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
+
 
         // set a field value to 0 if nothing was entered
         for (int i = 0; i < x.length; i++) {
@@ -98,6 +116,57 @@ public class MedFormActivity extends AppCompatActivity {
                 return false;
         }
         return true;
+    }
+
+    // this makes sure that both Dose and Dose Unit are entered, or both not entered.
+    public boolean validateDose(EditText[] x) {
+        if (x[1].getText().toString().isEmpty()) {
+            if (x[6].getText().toString().isEmpty()) {
+                return true;
+            } else{
+                return false;
+            }
+        } else{
+            if (x[6].getText().toString().isEmpty()) {
+                return false;
+            } else{
+                return true;
+            }
+        }
+    }
+
+    // this makes sure that both Dosage and Dosage Unit are entered, or both not entered.
+    public boolean validateDosage(EditText[] x) {
+        if (x[2].getText().toString().isEmpty()) {
+            if (x[7].getText().toString().isEmpty()) {
+                return true;
+            } else{
+                return false;
+            }
+        } else{
+            if (x[7].getText().toString().isEmpty()) {
+                return false;
+            } else{
+                return true;
+            }
+        }
+    }
+
+    // this makes sure that both Frequency and interval Unit are entered, or both not entered.
+    public boolean validateFrequency(EditText[] x) {
+        if (x[3].getText().toString().isEmpty()) {
+            if (x[8].getText().toString().isEmpty()) {
+                return true;
+            } else{
+                return false;
+            }
+        } else{
+            if (x[8].getText().toString().isEmpty()) {
+                return false;
+            } else{
+                return true;
+            }
+        }
     }
 
 
