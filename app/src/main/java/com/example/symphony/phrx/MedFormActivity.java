@@ -36,10 +36,25 @@ public class MedFormActivity extends AppCompatActivity {
 
         //validate
         EditText[] x = {editName, editDoseUnit, editDosageUnit, editFrequencyInt, editAdmin, editReason, editDose, editDosage, editFrequency};
+        /*
         if (!validate(x)) {
             Toast toast = Toast.makeText(getApplication(), "Please fill out all fields", Toast.LENGTH_SHORT);
             toast.show();
             return;
+        }*/
+
+        if (!validateName(x)) {
+            Toast toast = Toast.makeText(getApplication(), "Please enter a medication name", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
+
+
+        // set a field value to 0 if nothing was entered
+        for (int i = 0; i < x.length; i++) {
+            if (x[i].getText().toString().isEmpty()) {
+                x[i].setText("0");
+            }
         }
 
         // convert to strings to use for set
@@ -68,6 +83,7 @@ public class MedFormActivity extends AppCompatActivity {
         finish();
     }
 
+    /*
     public boolean validate(EditText[] x) {
         for (int i = 0; i < x.length; i++) {
             if (x[i].getText().toString().isEmpty()) {
@@ -75,7 +91,15 @@ public class MedFormActivity extends AppCompatActivity {
             }
         }
         return true;
+    } */
+
+    public boolean validateName(EditText[] x) {
+        if (x[0].getText().toString().isEmpty()) {
+                return false;
+        }
+        return true;
     }
+
 
     public void onPause() {
         super.onPause();

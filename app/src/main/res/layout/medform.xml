@@ -1,108 +1,209 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingBottom="20dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingTop="20dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name:"
+                android:textSize="20dp"
+                android:textColor="#000000"
+                android:id="@+id/textName"
+                android:layout_gravity="left" />
 
-    <EditText
-        android:id="@+id/editTextName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:hint="Enter Name of Medication"
-        android:singleLine="true"
-        android:inputType="text">
+            <EditText
+                android:id="@+id/editTextName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:hint="Enter Name of Medication"
+                android:singleLine="true"
+                android:inputType="text"
+                android:layout_gravity="center_horizontal">
 
-        <requestFocus />
-    </EditText>
+                <requestFocus />
+            </EditText>
 
-    <EditText
-        android:id="@+id/editTextDose"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:hint="Enter Dose"
-        android:singleLine="true"
-        android:inputType="number" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dose:"
+                android:textSize="20dp"
+                android:textColor="#000000"
+                android:id="@+id/textDose"
+                android:paddingTop="10dp"
+                android:layout_gravity="left" />
 
-    <EditText
-        android:id="@+id/editTextDoseUnit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/editTextHeight"
-        android:hint="Enter Dose Unit"
-        android:singleLine="true"
-        android:inputType="text" />
+            <EditText
+                android:id="@+id/editTextDose"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:hint="Enter a value greater than 0"
+                android:singleLine="true"
+                android:inputType="number" />
 
-    <EditText
-        android:id="@+id/editTextDosage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/editTextSys"
-        android:hint="Enter Dosage"
-        android:singleLine="true"
-        android:inputType="number" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dose Unit:"
+                android:textSize="20dp"
+                android:textColor="#000000"
+                android:id="@+id/textDoseUnit"
+                android:paddingTop="10dp"
+                android:layout_gravity="left" />
 
-    <EditText
-        android:id="@+id/editTextDosageUnit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/editTextDia"
-        android:hint="Enter Dosage Unit"
-        android:singleLine="true"
-        android:inputType="text" />
+            <EditText
+                android:id="@+id/editTextDoseUnit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:hint="ex: mg, mL, etc."
+                android:singleLine="true"
+                android:inputType="text" />
 
-    <EditText
-        android:id="@+id/editTextFrequency"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/editTextHeight"
-        android:hint="Enter Frequency"
-        android:singleLine="true"
-        android:inputType="number" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dosage:"
+                android:textSize="20dp"
+                android:textColor="#000000"
+                android:id="@+id/textDosage"
+                android:paddingTop="10dp"
+                android:layout_gravity="left" />
 
-    <EditText
-        android:id="@+id/editTextFrequencyInt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/editTextSys"
-        android:hint="Enter Frequency interval"
-        android:singleLine="true"
-        android:inputType="text" />
+            <EditText
+                android:id="@+id/editTextDosage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/editTextSys"
+                android:hint="Enter a value greater than 0"
+                android:singleLine="true"
+                android:inputType="number" />
 
-    <EditText
-        android:id="@+id/editTextAdmin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/editTextDia"
-        android:hint="Enter Route of Administration"
-        android:singleLine="true"
-        android:inputType="text" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dosage Unit:"
+                android:textSize="20dp"
+                android:textColor="#000000"
+                android:id="@+id/textDosageUnit"
+                android:paddingTop="10dp"
+                android:layout_gravity="left" />
+
+            <EditText
+                android:id="@+id/editTextDosageUnit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/editTextDia"
+                android:hint="ex: capsules, puffs, injections, etc."
+                android:singleLine="true"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Frequency:"
+                android:textSize="20dp"
+                android:textColor="#000000"
+                android:id="@+id/textFrequency"
+                android:paddingTop="10dp"
+                android:layout_gravity="left" />
+
+            <EditText
+                android:id="@+id/editTextFrequency"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/editTextHeight"
+                android:hint="Enter a value greater than 0"
+                android:singleLine="true"
+                android:inputType="number" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="interval:"
+                android:textSize="20dp"
+                android:textColor="#000000"
+                android:id="@+id/textInterval"
+                android:paddingTop="10dp"
+                android:layout_gravity="left" />
+
+            <EditText
+                android:id="@+id/editTextFrequencyInt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/editTextSys"
+                android:hint="ex: hour, day, etc."
+                android:singleLine="true"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Route of Administration:"
+                android:textSize="20dp"
+                android:textColor="#000000"
+                android:id="@+id/textRoute"
+                android:paddingTop="10dp"
+                android:layout_gravity="left" />
+
+            <EditText
+                android:id="@+id/editTextAdmin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/editTextDia"
+                android:hint="ex: oral, topical, etc."
+                android:singleLine="true"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Reason:"
+                android:textSize="20dp"
+                android:textColor="#000000"
+                android:id="@+id/textReason"
+                android:paddingTop="10dp"
+                android:layout_gravity="left" />
 
 
-    <EditText
-        android:id="@+id/editTextReason"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/editTextHeight"
-        android:hint="Enter Reason for taking"
-        android:singleLine="true"
-        android:inputType="text" />
+            <EditText
+                android:id="@+id/editTextReason"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/editTextHeight"
+                android:hint="what purpose does this medication serve?"
+                android:singleLine="true"
+                android:inputType="text" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ADD"
-        android:id="@+id/addButton"
-        android:layout_alignParentBottom="true"
-        android:onClick="onClickAdd"
-        android:layout_gravity="center_horizontal" />
-
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ADD"
+                android:id="@+id/addButton"
+                android:layout_alignParentBottom="true"
+                android:onClick="onClickAdd"
+                android:layout_gravity="center_horizontal" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

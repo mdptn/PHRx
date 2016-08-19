@@ -19,16 +19,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/textWeight"
-        android:text="Dose:"
-        android:singleLine="true" />
-
-    <TextView
-        android:id="@+id/textDoseUnit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textWeight"
-        android:text="Dose Unit:"
         android:singleLine="true" />
 
     <TextView
@@ -41,30 +31,12 @@
         android:singleLine="true" />
 
     <TextView
-        android:id="@+id/textDosageUnit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textWeight"
-        android:text="Dosage Unit:"
-        android:singleLine="true" />
-
-    <TextView
         android:id="@+id/textFrequency"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/textSys"
         android:text="Frequency:"
-        android:singleLine="true" />
-
-    <TextView
-        android:id="@+id/textFrequencyInt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textSys"
-        android:text="Frequency Interval:"
         android:singleLine="true" />
 
     <TextView

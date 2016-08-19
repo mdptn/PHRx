@@ -34,29 +34,71 @@ public class MedArrayAdapter extends ArrayAdapter<Medication>{
 
         TextView name = (TextView) view.findViewById(R.id.textName);
         TextView dose = (TextView) view.findViewById(R.id.textDose);
-        TextView dose_unit = (TextView) view.findViewById(R.id.textDoseUnit);
         TextView dosage = (TextView) view.findViewById(R.id.textDosage);
-        TextView dosage_unit = (TextView) view.findViewById(R.id.textDosageUnit);
         TextView frequency = (TextView) view.findViewById(R.id.textFrequency);
-        TextView frequency_int = (TextView) view.findViewById(R.id.textFrequencyInt);
         TextView administration = (TextView) view.findViewById(R.id.textAdmin);
         TextView reason = (TextView) view.findViewById(R.id.textReason);
 
         // convert weight and height to string to use for setText
+        String n = m.getName();
         String d = String.valueOf(m.getDose());
+        String du = m.getDoseUnit();
         String d2 = String.valueOf(m.getDosage());
+        String d2u = m.getDosageUnit();
         String f = String.valueOf(m.getFrequency());
+        String fi = m.getFrequencyInterval();
+        String a = m.getAdministration();
+        String r = m.getReason();
+        String blank = "";
+        String zero = "0";
+        String zerop = "0.0";
 
-        name.setText("Name: " + m.getName());
-        dose.setText("Dose: " + d);
-        dose_unit.setText("Dose Unit: " + m.getDoseUnit());
-        dosage.setText("Dosage: " + d2);
-        dosage_unit.setText("Dosage Unit: " + m.getDosageUnit());
-        frequency.setText("Frequency: " + f);
-        frequency_int.setText("Frequency Interval: " + m.getFrequencyInterval());
-        administration.setText("Route of Administration: " + m.getAdministration());
-        reason.setText("Reason for Taking: " + m.getReason());
 
+        // if dose & dose unit were left completely blank, it is not shown in listview.
+        if (!d.equals(blank)&& !d.equals(zero) && !d.equals(zerop)&&
+                !du.equals(blank)&& !du.equals(zero) && !du.equals(zerop)) {
+            dose.setVisibility(View.VISIBLE);
+            dose.setText("Dose: " + d + " " + du);
+        } else{
+            dose.setVisibility(View.GONE);
+        }
+
+        // if dosage & dosage unit were left completely blank, it is not shown in listview.
+        if (!d2.equals(blank)&& !d2.equals(zero) && !d2.equals(zerop)&&
+                !d2u.equals(blank)&& !d2u.equals(zero) && !d2u.equals(zerop)) {
+            dosage.setVisibility(View.VISIBLE);
+            dosage.setText("Dosage: " + d2 + " " + d2u);
+        } else{
+            dosage.setVisibility(View.GONE);
+        }
+
+        // if frequency & interval unit were left completely blank, it is not shown in listview.
+        if (!f.equals(blank)&& !f.equals(zero) && !f.equals(zerop)&&
+                !fi.equals(blank)&& !fi.equals(zero) && !fi.equals(zerop)) {
+            frequency.setVisibility(View.VISIBLE);
+            frequency.setText("Frequency: " + f + "/" + fi);
+        } else{
+            frequency.setVisibility(View.GONE);
+        }
+
+        // if administration was left completely blank, it is not shown in listview.
+        if (!a.equals(blank)&& !a.equals(zero) && !a.equals(zerop)) {
+            administration.setVisibility(View.VISIBLE);
+            administration.setText("Route of Administration: " + a);
+        } else{
+            administration.setVisibility(View.GONE);
+        }
+
+        // if reason was left completely blank, it is not shown in listview.
+        if (!r.equals(blank)&& !r.equals(zero) && !r.equals(zerop)) {
+            reason.setVisibility(View.VISIBLE);
+            reason.setText("Reason for Taking: " + r);
+        } else{
+            reason.setVisibility(View.GONE);
+        }
+
+        // there must always be a name for the med, so it's text is always shown.
+        name.setText("Name: " + n);
         view.setId(m.getId());
 
         return view;
