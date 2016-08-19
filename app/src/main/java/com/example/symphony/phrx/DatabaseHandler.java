@@ -321,7 +321,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(IMM_ID, i.getId());
         values.put(IMM_NAME, i.getName());
         values.put(IMM_DATE, i.getDate());
         values.put(IMM_DOSE, i.getDose());
