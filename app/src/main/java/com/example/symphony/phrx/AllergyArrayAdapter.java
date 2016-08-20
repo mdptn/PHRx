@@ -35,10 +35,30 @@ public class AllergyArrayAdapter extends ArrayAdapter<Allergy>{
         TextView symptom = (TextView) view.findViewById(R.id.textSymptom);
         TextView meds = (TextView) view.findViewById(R.id.textMed);
 
+        String n = a.getName();
+        String s = a.getSymptom();
+        String m = a.getMedication();
+        String blank = "";
+        String zerop = "0.0";
+        String zero = "0";
+
+        // if symptoms was left completely blank, it is not shown in listview.
+        if (!s.equals(blank)&& !s.equals(zero) && !s.equals(zerop)) {
+            symptom.setVisibility(View.VISIBLE);
+            symptom.setText("Symptoms: " + a.getSymptom());
+        } else{
+            symptom.setVisibility(View.GONE);
+        }
+
+        // if meds was left completely blank, it is not shown in listview.
+        if (!m.equals(blank)&& !m.equals(zero) && !m.equals(zerop)) {
+            meds.setVisibility(View.VISIBLE);
+            meds.setText("Medications: " + a.getMedication());
+        } else{
+            meds.setVisibility(View.GONE);
+        }
 
         name.setText("Name: " + a.getName());
-        symptom.setText("Date: " + a.getSymptom());
-        meds.setText("Dose: " + a.getMedication());
 
         view.setId(a.getId());
 

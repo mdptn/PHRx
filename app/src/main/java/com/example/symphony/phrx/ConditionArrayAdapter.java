@@ -34,8 +34,21 @@ public class ConditionArrayAdapter extends ArrayAdapter<Condition>{
         TextView name = (TextView) view.findViewById(R.id.textName);
         TextView desc = (TextView) view.findViewById(R.id.textDescription);
 
+        String n = c.getName();
+        String d = c.getDescription();
+        String blank = "";
+        String zerop = "0.0";
+        String zero = "0";
+
+        // if description was left completely blank, it is not shown in listview.
+        if (!d.equals(blank)&& !d.equals(zero) && !d.equals(zerop)) {
+            desc.setVisibility(View.VISIBLE);
+            desc.setText("Description: " + c.getDescription());
+        } else{
+            desc.setVisibility(View.GONE);
+        }
+
         name.setText("Name: " + c.getName());
-        desc.setText("Description: " + c.getDescription());
 
         view.setId(c.getId());
 

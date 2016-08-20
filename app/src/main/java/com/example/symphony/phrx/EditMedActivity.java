@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.symphony.phrx.db_classes.Medication;
 
@@ -85,6 +86,40 @@ public class EditMedActivity extends AppCompatActivity{
 
 
     public void onClickUpdateButton(View v){
+
+        EditText[] x = {nameT, doseT, doseuT, dosageT, dosageuT, freqT, freqiT, adminT, reasonT};
+
+        if (!validateName(x)) {
+            Toast toast = Toast.makeText(getApplication(), "Please enter a medication name", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
+
+        if (!validateDose(x)) {
+            Toast toast = Toast.makeText(getApplication(), "Please enter both a dose and unit", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
+
+        if (!validateDosage(x)) {
+            Toast toast = Toast.makeText(getApplication(), "Please enter both a dosage and unit", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
+
+        if (!validateFrequency(x)) {
+            Toast toast = Toast.makeText(getApplication(), "Please enter both a frequency and unit", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
+
+        // set a field value to 0 if nothing was entered
+        for (int i = 0; i < x.length; i++) {
+            if (x[i].getText().toString().isEmpty()) {
+                x[i].setText("0");
+            }
+        }
+
         String n = nameT.getText().toString();
         String du = doseuT.getText().toString();
         String du2 = dosageuT.getText().toString();
@@ -94,6 +129,9 @@ public class EditMedActivity extends AppCompatActivity{
         double d = Double.parseDouble(doseT.getText().toString());
         double d2 = Double.parseDouble(dosageT.getText().toString());
         double f = Double.parseDouble(freqT.getText().toString());
+
+
+
         m.setName(n);
         m.setDose(d);
         m.setDoseUnit(du);
@@ -107,5 +145,65 @@ public class EditMedActivity extends AppCompatActivity{
         finish();
 
     }
+
+
+    public boolean validateName(EditText[] x) {
+        if (x[0].getText().toString().isEmpty()) {
+            return false;
+        }
+        return true;
+    }
+
+    // this makes sure that both Dose and Dose Unit are entered, or both not entered.
+    public boolean validateDose(EditText[] x) {
+        if (x[1].getText().toString().isEmpty()) {
+            if (x[2].getText().toString().isEmpty()) {
+                return true;
+            } else{
+                return false;
+            }
+        } else{
+            if (x[2].getText().toString().isEmpty()) {
+                return false;
+            } else{
+                return true;
+            }
+        }
+    }
+
+    // this makes sure that both Dosage and Dosage Unit are entered, or both not entered.
+    public boolean validateDosage(EditText[] x) {
+        if (x[3].getText().toString().isEmpty()) {
+            if (x[4].getText().toString().isEmpty()) {
+                return true;
+            } else{
+                return false;
+            }
+        } else{
+            if (x[4].getText().toString().isEmpty()) {
+                return false;
+            } else{
+                return true;
+            }
+        }
+    }
+
+    // this makes sure that both Frequency and interval Unit are entered, or both not entered.
+    public boolean validateFrequency(EditText[] x) {
+        if (x[5].getText().toString().isEmpty()) {
+            if (x[6].getText().toString().isEmpty()) {
+                return true;
+            } else{
+                return false;
+            }
+        } else{
+            if (x[6].getText().toString().isEmpty()) {
+                return false;
+            } else{
+                return true;
+            }
+        }
+    }
+
 
 }

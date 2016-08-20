@@ -29,10 +29,17 @@ public class ConditionFormActivity extends AppCompatActivity{
 
         //validate
         EditText[] x = {editName, editDesc};
-        if (!validate(x)) {
-            Toast toast = Toast.makeText(getApplication(), "Please fill out all fields", Toast.LENGTH_SHORT);
+        if (!validateName(x)) {
+            Toast toast = Toast.makeText(getApplication(), "Please enter the name of condition", Toast.LENGTH_SHORT);
             toast.show();
             return;
+        }
+
+        // set a field value to 0 if nothing was entered
+        for (int i = 0; i < x.length; i++) {
+            if (x[i].getText().toString().isEmpty()) {
+                x[i].setText("0");
+            }
         }
 
         // convert to strings to use for set
@@ -48,11 +55,9 @@ public class ConditionFormActivity extends AppCompatActivity{
         finish();
     }
 
-    public boolean validate(EditText[] x) {
-        for (int i = 0; i < x.length; i++) {
-            if (x[i].getText().toString().isEmpty()) {
+    public boolean validateName(EditText[] x) {
+        if (x[0].getText().toString().isEmpty()) {
                 return false;
-            }
         }
         return true;
     }

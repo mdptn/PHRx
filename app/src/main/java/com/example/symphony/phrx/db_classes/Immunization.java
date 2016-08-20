@@ -9,6 +9,7 @@ public class Immunization {
     private String name;
     private String date; // temporary. will probably change type later to include datepicker
     private int dose;
+    private String dose_unit;
 
     //set values
     public void setId(int id) {
@@ -23,6 +24,10 @@ public class Immunization {
 
     public void setDose(int dose) {
         this.dose = dose;
+    }
+
+    public void setDoseUnit(String dose_unit) {
+        this.dose_unit = dose_unit;
     }
 
     //get
@@ -40,6 +45,10 @@ public class Immunization {
 
     public int getDose() {
         return dose;
+    }
+
+    public String getDoseUnit() {
+        return dose_unit;
     }
 
 }

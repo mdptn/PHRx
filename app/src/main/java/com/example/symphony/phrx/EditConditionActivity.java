@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.symphony.phrx.db_classes.Condition;
 
@@ -61,8 +62,26 @@ public class EditConditionActivity extends AppCompatActivity{
 
 
     public void onClickUpdateButton(View v){
+        //validate
+        EditText[] x = {nameT, descT};
+        if (!validateName(x)) {
+            Toast toast = Toast.makeText(getApplication(), "Please enter the name of condition", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
+
+        // set a field value to 0 if nothing was entered
+        for (int i = 0; i < x.length; i++) {
+            if (x[i].getText().toString().isEmpty()) {
+                x[i].setText("0");
+            }
+        }
+
+
         String n = nameT.getText().toString();
         String d = descT.getText().toString();
+
+
         c.setName(n);
         c.setDescription(d);
         dh.editCondition(c, cId);
@@ -70,5 +89,11 @@ public class EditConditionActivity extends AppCompatActivity{
 
     }
 
+    public boolean validateName(EditText[] x) {
+        if (x[0].getText().toString().isEmpty()) {
+            return false;
+        }
+        return true;
+    }
 
 }

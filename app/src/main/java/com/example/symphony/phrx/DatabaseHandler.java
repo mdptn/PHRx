@@ -55,6 +55,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String IMM_NAME = "name";
     private static final String IMM_DATE = "date";
     private static final String IMM_DOSE = "dose"; //dose number, calculate updates somewhere else
+    private static final String IMM_DOSE_UNIT = "dose_unit";
     //allergy fields
     private static final String ALL_ID = "id";
     private static final String ALL_NAME = "name";
@@ -95,7 +96,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             IMM_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
             IMM_NAME + " TEXT," +
             IMM_DATE + " TEXT," +
-            IMM_DOSE + " INT" +
+            IMM_DOSE + " INT," +
+            IMM_DOSE_UNIT + " TEXT" +
             ")";
     private static final String CREATE_TABLE_ALLERGY = "CREATE TABLE " + TABLE_ALLERGY +
             "(" +
@@ -324,6 +326,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(IMM_NAME, i.getName());
         values.put(IMM_DATE, i.getDate());
         values.put(IMM_DOSE, i.getDose());
+        values.put(IMM_DOSE_UNIT, i.getDoseUnit());
+
 
         long Immunization_return = db.insert(TABLE_IMMUNIZATION, null, values);
     }
@@ -335,6 +339,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(IMM_NAME, i.getName());
         values.put(IMM_DATE, i.getDate());
         values.put(IMM_DOSE, i.getDose());
+        values.put(IMM_DOSE_UNIT, i.getDoseUnit());
 
         long Immunization_returns = db.update(TABLE_IMMUNIZATION, values, "id = " + id, null);
     }
@@ -357,6 +362,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         i.setName(c.getString(c.getColumnIndex(IMM_NAME)));
         i.setDate(c.getString(c.getColumnIndex(IMM_DATE)));
         i.setDose(c.getInt(c.getColumnIndex(IMM_DOSE)));
+        i.setDoseUnit(c.getString(c.getColumnIndex(IMM_DOSE_UNIT)));
 
         return i;
     }
@@ -374,6 +380,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 i.setName(c.getString(c.getColumnIndex(IMM_NAME)));
                 i.setDate(c.getString(c.getColumnIndex(IMM_DATE)));
                 i.setDose(c.getInt(c.getColumnIndex(IMM_DOSE)));
+                i.setDoseUnit(c.getString(c.getColumnIndex(IMM_DOSE_UNIT)));
                 il.add(i);
             } while (c.moveToNext());
         }

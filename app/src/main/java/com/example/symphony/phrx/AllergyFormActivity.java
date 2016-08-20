@@ -30,10 +30,19 @@ public class AllergyFormActivity extends AppCompatActivity{
 
         //validate
         EditText[] x = {editName, editSymptom, editMed};
-        if (!validate(x)) {
-            Toast toast = Toast.makeText(getApplication(), "Please fill out all fields", Toast.LENGTH_SHORT);
+
+        //check if name is entered. must enter a name.
+        if (!validateName(x)) {
+            Toast toast = Toast.makeText(getApplication(), "Please enter the name of allergy", Toast.LENGTH_SHORT);
             toast.show();
             return;
+        }
+
+        // set a field value to 0 if nothing was entered
+        for (int i = 0; i < x.length; i++) {
+            if (x[i].getText().toString().isEmpty()) {
+                x[i].setText("0");
+            }
         }
 
         // convert to strings to use for set
@@ -52,11 +61,9 @@ public class AllergyFormActivity extends AppCompatActivity{
         finish();
     }
 
-    public boolean validate(EditText[] x) {
-        for (int i = 0; i < x.length; i++) {
-            if (x[i].getText().toString().isEmpty()) {
+    public boolean validateName(EditText[] x) {
+        if (x[0].getText().toString().isEmpty()) {
                 return false;
-            }
         }
         return true;
     }
