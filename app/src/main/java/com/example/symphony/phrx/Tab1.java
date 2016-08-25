@@ -150,6 +150,7 @@ public class Tab1 extends Fragment{
 
         TextView display = (TextView) getView().findViewById(R.id.textViewSum);
         display.setText(x);
+
     }
 
 }

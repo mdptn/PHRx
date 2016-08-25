@@ -23,8 +23,9 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:hint="Enter Name"
-        android:singleLine="true"
-        android:inputType="text">
+        android:inputType="textCapSentences|textMultiLine"
+        android:maxLength="50"
+        android:singleLine="true">
 
         <requestFocus />
     </EditText>
@@ -45,8 +46,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:hint="Describe your symptoms"
-        android:singleLine="true"
-        android:inputType="text" />
+        android:inputType="textCapSentences|textMultiLine"
+        android:maxLength="300"
+        android:singleLine="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -64,6 +66,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:hint="What medications help?"
+        android:inputType="textCapSentences|textMultiLine"
+        android:maxLength="200"
         android:singleLine="true" />
 
     <Button

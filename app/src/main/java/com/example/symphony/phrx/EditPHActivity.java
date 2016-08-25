@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.symphony.phrx.db_classes.PersonalHealth;
 
@@ -75,6 +76,28 @@ public class EditPHActivity extends AppCompatActivity{
 
 
     public void onClickUpdateButton(View v){
+
+        EditText[] x = {weighT, heighT, sysT, diaT, hrT};
+        if (!validate(x)) {
+            Toast toast = Toast.makeText(getApplication(), "Please fill in at least one field", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
+
+        if (!validateBP(x)) {
+            Toast toast = Toast.makeText(getApplication(), "Please fill in a complete heart rate", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
+
+        // set a field value to 0 if nothing was entered
+        for (int i = 0; i < x.length; i++) {
+            if (x[i].getText().toString().isEmpty()) {
+                x[i].setText("0");
+            }
+        }
+
+
         double w = Double.parseDouble(weighT.getText().toString());
         double h = Double.parseDouble(heighT.getText().toString());
         int s = Integer.parseInt(sysT.getText().toString());
@@ -89,6 +112,34 @@ public class EditPHActivity extends AppCompatActivity{
         dh.editPersonalHealth(ph, phId);
         finish();
 
+    }
+
+    // validate if at least one field was filled in
+    public boolean validate(EditText[] x) {
+        for (int i = 0; i < x.length; i++) {
+            if (!x[i].getText().toString().isEmpty() && !x[i].getText().toString().equals("0")
+                    && !x[i].getText().toString().equals("0.0")) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // this makes sure that both systolic and diastolic bp are entered, or both not entered.
+    public boolean validateBP(EditText[] x) {
+        if (x[2].getText().toString().isEmpty()) {
+            if (x[3].getText().toString().isEmpty()) {
+                return true;
+            } else{
+                return false;
+            }
+        } else{
+            if (x[3].getText().toString().isEmpty()) {
+                return false;
+            } else{
+                return true;
+            }
+        }
     }
 
 }

@@ -42,9 +42,22 @@ public class PHformActivity extends AppCompatActivity{
         //validate
         EditText[] x = {editWeight, editHeight, editSystolic, editDiastolic, editHeartRate};
         if (!validate(x)) {
-            Toast toast = Toast.makeText(getApplication(), "Please fill out all fields", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(getApplication(), "Please fill in at least one field", Toast.LENGTH_SHORT);
             toast.show();
             return;
+        }
+
+        if (!validateBP(x)) {
+            Toast toast = Toast.makeText(getApplication(), "Please fill in a complete heart rate", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
+
+        // set a field value to 0 if nothing was entered
+        for (int i = 0; i < x.length; i++) {
+            if (x[i].getText().toString().isEmpty()) {
+                x[i].setText("0");
+            }
         }
 
         // convert to strings to use for set
@@ -67,13 +80,31 @@ public class PHformActivity extends AppCompatActivity{
         finish();
     }
 
+    // validate if at least one field was filled in
     public boolean validate(EditText[] x) {
         for (int i = 0; i < x.length; i++) {
-            if (x[i].getText().toString().isEmpty()) {
-                return false;
+            if (!x[i].getText().toString().isEmpty()) {
+                return true;
             }
         }
-        return true;
+        return false;
+    }
+
+    // this makes sure that both systolic and diastolic bp are entered, or both not entered.
+    public boolean validateBP(EditText[] x) {
+        if (x[2].getText().toString().isEmpty()) {
+            if (x[3].getText().toString().isEmpty()) {
+                return true;
+            } else{
+                return false;
+            }
+        } else{
+            if (x[3].getText().toString().isEmpty()) {
+                return false;
+            } else{
+                return true;
+            }
+        }
     }
 
     public void onPause() {

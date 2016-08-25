@@ -39,7 +39,7 @@ public class MedArrayAdapter extends ArrayAdapter<Medication>{
         TextView administration = (TextView) view.findViewById(R.id.textAdmin);
         TextView reason = (TextView) view.findViewById(R.id.textReason);
 
-        // convert weight and height to string to use for setText
+        // convert to string to use for setText
         String n = m.getName();
         String d = String.valueOf(m.getDose());
         String du = m.getDoseUnit();

@@ -23,8 +23,9 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:hint="Enter Name of condition"
-        android:singleLine="true"
-        android:inputType="text">
+        android:inputType="textCapSentences|textMultiLine"
+        android:maxLength="50"
+        android:singleLine="true">
 
         <requestFocus />
     </EditText>
@@ -46,8 +47,9 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/editTextWeight"
         android:hint="Describe the condition"
-        android:singleLine="true"
-        android:inputType="text" />
+        android:inputType="textCapSentences|textMultiLine"
+        android:maxLength="300"
+        android:singleLine="true" />
 
 
     <Button

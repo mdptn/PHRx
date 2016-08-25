@@ -22,9 +22,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:hint="Enter a value 0-1000"
+        android:hint="Enter a value for weight"
+        android:maxLength="5"
         android:singleLine="true"
-        android:inputType="number|numberDecimal"
+        android:inputType="numberDecimal"
         android:layout_gravity="center_horizontal">
 
         <requestFocus />
@@ -45,9 +46,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/editTextWeight"
-        android:hint="Enter a value 0-300"
+        android:hint="Enter a value for height"
+        android:maxLength="5"
         android:singleLine="true"
-        android:inputType="number|numberDecimal" />
+        android:inputType="numberDecimal" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -63,7 +65,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:hint="Enter Systolic Blood Pressure from 0-200"
+        android:hint="Enter a value for systolic blood pressure"
+        android:maxLength="3"
         android:singleLine="true"
         android:inputType="number" />
 
@@ -73,7 +76,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/editTextSys"
-        android:hint="Enter Diastolic Blood Pressure from 0-200"
+        android:hint="Enter a value for diastolic blood pressure"
+        android:maxLength="3"
         android:singleLine="true"
         android:inputType="number" />
 
@@ -93,7 +97,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/editTextDia"
-        android:hint="Enter a value 0-200"
+        android:hint="Enter a value for heart rate"
+        android:maxLength="3"
         android:singleLine="true"
         android:inputType="number" />
 

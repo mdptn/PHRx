@@ -23,8 +23,9 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:hint="Enter Name of immunization"
-        android:singleLine="true"
-        android:inputType="text">
+        android:inputType="textCapSentences|textMultiLine"
+        android:maxLength="50"
+        android:singleLine="false">
 
         <requestFocus />
     </EditText>
@@ -45,6 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:hint="Enter Date"
+        android:maxLength="10"
         android:singleLine="true"
         android:inputType="date" />
 
@@ -65,8 +67,9 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/editTextHeight"
         android:hint="Enter Dose amount"
+        android:maxLength="5"
         android:singleLine="true"
-        android:inputType="number" />
+        android:inputType="numberDecimal" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -85,6 +88,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/editTextHeight"
         android:hint="ex: mL"
+        android:maxLength="5"
         android:singleLine="true"
         android:inputType="text" />
 

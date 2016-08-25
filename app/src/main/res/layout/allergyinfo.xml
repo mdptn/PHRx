@@ -11,7 +11,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:text="Name:"
-        android:singleLine="true" />
+        android:singleLine="false" />
 
     <TextView
         android:id="@+id/textSymptom"
@@ -20,7 +20,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/textWeight"
         android:text="Symptoms:"
-        android:singleLine="true" />
+        android:singleLine="false" />
 
     <TextView
         android:id="@+id/textMed"
@@ -29,7 +29,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/textHeight"
         android:text="Medications:"
-        android:singleLine="true" />
+        android:singleLine="false" />
 
 
 
