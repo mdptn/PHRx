@@ -25,13 +25,13 @@ import java.util.List;
 
 public class Tab1 extends Fragment{
     DatabaseHandler dh;
-    List<PersonalHealth> phl;
+    List<PersonalHealth> p;
     List<Medication> ml;
     List<Immunization> il;
     List<Allergy> al;
     List<Condition> cl;
+    boolean P, M, I, A, C;
 
-    List<PersonalHealth> p;
 
 
     @Override
@@ -48,18 +48,47 @@ public class Tab1 extends Fragment{
         displaySummary();
     }
 
-    public boolean checkFill() {
+    public boolean checkFill() { // check if any tabs have data
         boolean flag = false;
         p = dh.getAllPersonalHealth();
-        /*
-        List<Medication> m = dh.getAllMedication();
-        List<Immunization> i = dh.getAllImmunization();
-        List<Allergy> a = dh.getAllAlergy();
-        List<Condition> c = dh.getAllCondition();
-        */
-        List[] x = {p}; //List[] x = {p, m, i, a, c};
+        ml = dh.getAllMedication();
+        il = dh.getAllImmunization();
+        al = dh.getAllAlergy();
+        cl = dh.getAllCondition();
+
+
+        List[] x = {p};
+        List[] y = {ml};
+        List[] z = {il};
+        List[] q = {al};
+        List[] r = {cl};
         for (int j = 0; j < x.length; j++) {
             if(x[j].size() != 0) {
+                P = true;
+                return true;
+            }
+        }
+        for (int j = 0; j < y.length; j++) {
+            if(y[j].size() != 0) {
+                M = true;
+                return true;
+            }
+        }
+        for (int j = 0; j < z.length; j++) {
+            if(z[j].size() != 0) {
+                I = true;
+                return true;
+            }
+        }
+        for (int j = 0; j < q.length; j++) {
+            if(q[j].size() != 0) {
+                A = true;
+                return true;
+            }
+        }
+        for (int j = 0; j < r.length; j++) {
+            if(r[j].size() != 0) {
+                C = true;
                 return true;
             }
         }
@@ -105,52 +134,95 @@ public class Tab1 extends Fragment{
         if (!checkFill()) {
 
         } else {
-            PersonalHealth pl = p.get(p.size() - 1);
 
-            //calculating BMI-----------------------------------------------------------------------
-            String wunit = pl.getWeightUnit();
-            String hunit = pl.getHeightUnit();
-            double theHeight = pl.getHeight();
-            double theWeight = pl.getWeight();
-            double BMI;
-            DecimalFormat onePlace = new DecimalFormat("#,##0.0");
+            String psumm = "";
 
-            //check if weight unit is kg
-            if(wunit.equals("Kilograms") == true){
-                if(hunit.equals("Centimeters") == true){ // calc BMI for kg/cm
-                    theHeight = theHeight/100;
-                    theHeight = theHeight*theHeight;
-                    BMI = theWeight/theHeight;
-                } else { // calc BMI for kg/inch
-                    theHeight = theHeight * 2.54;
-                    theHeight = theHeight/100;
-                    theHeight = theHeight*theHeight;
-                    BMI = theWeight/theHeight;
+            if (P == true) { // if there is any personal health records
+
+                String hsumm = "";
+                boolean wflag = false;
+                boolean hflag = false;
+                String wsumm = "";
+                String ybmi = "";
+                String bpsumm = "";
+
+                PersonalHealth pl = p.get(p.size() - 1);
+
+
+                String wunit = pl.getWeightUnit();
+                String hunit = pl.getHeightUnit();
+                double theWeight = pl.getWeight();
+                double theHeight = pl.getHeight();
+                int dia = pl.getDiastolic();
+                int sys = pl.getSystolic();
+
+                if(theHeight == 0 || theHeight == 0.0){
+                } else{
+                    hflag = true;
+                    hsumm = "\nHeight: " + theHeight + " " + hunit;
                 }
-            } else{
-                if(hunit.equals("Inches") == true){ // calc BMI for lb/inch
-                    theHeight = theHeight*theHeight;
-                    BMI = theWeight/theHeight*703;
-
-                } else{ // calc BMI for lb/cm
-                    theWeight = theWeight*0.45359237;
-                    theHeight = theHeight/100;
-                    theHeight = theHeight*theHeight;
-                    BMI = theWeight/theHeight;
-
+                if(theWeight == 0 || theWeight == 0.0){
+                } else{
+                    wflag = true;
+                    wsumm = "\nWeight: " + theWeight + " " + wunit;
                 }
+
+                if(hflag == true && wflag == true) {
+                    double BMI;
+                    DecimalFormat onePlace = new DecimalFormat("#,##0.0");
+                    BMI = calcBMI(theWeight, wunit, theHeight, hunit);
+                    ybmi = "\nYour BMI is " + onePlace.format(BMI) + ".";
+                }
+
+                if(dia != 0 && sys != 0){
+                    bpsumm = "\nBlood Pressure: "  + sys + "/" + dia + " mm Hg";
+                }
+
+
+                psumm = wsumm + hsumm + ybmi + bpsumm;
+
             }
-            //--------------------------------------------------------------------------------------
 
 
-            x = "Here are your last Records\n\nWeight: " + pl.getWeight() + " " + pl.getWeightUnit() +
-                    "\nHeight: " + pl.getHeight() + " " + pl.getHeightUnit() + "\nYour BMI is " + onePlace.format(BMI) + "." + "\nBlood Pressure: "  + pl.getSystolic() +
-                    "/" + pl.getDiastolic() + " mm Hg" + "\nYou are also taking: " + ml;
+
+
+            x = "Here are your last Records\n" + psumm + "\nYou are taking: " + ml;
         }
 
         TextView display = (TextView) getView().findViewById(R.id.textViewSum);
         display.setText(x);
 
+    }
+
+    // BMI calculator
+    public double calcBMI(double w, String wu, double h, String hu){
+        double BMI;
+        //check if weight unit is kg
+        if(wu.equals("Kilograms") == true){
+            if(hu.equals("Centimeters") == true){ // calc BMI for kg/cm
+                h = h/100;
+                h = h*h;
+                BMI = w/h;
+            } else { // calc BMI for kg/inch
+                h = h * 2.54;
+                h = h/100;
+                h = h*h;
+                BMI = w/h;
+            }
+        } else{
+            if(hu.equals("Inches") == true){ // calc BMI for lb/inch
+                h = h*h;
+                BMI = w/h*703;
+
+            } else{ // calc BMI for lb/cm
+                w = w*0.45359237;
+                h = h/100;
+                h = h*h;
+                BMI = w/h;
+
+            }
+        }
+        return BMI;
     }
 
 }
