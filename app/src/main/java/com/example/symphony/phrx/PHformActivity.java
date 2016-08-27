@@ -10,6 +10,7 @@ import android.widget.Toast;
 import com.example.symphony.phrx.db_classes.PersonalHealth;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -75,6 +76,7 @@ public class PHformActivity extends AppCompatActivity{
         ph.setSystolic(s);
         ph.setDiastolic(d);
         ph.setHeartRate(hr);
+        ph.setTime(Calendar.getInstance().getTimeInMillis());
 
         dh.createPersonalHealth(ph);
         finish();

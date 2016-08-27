@@ -40,6 +40,15 @@
         android:text="Heart Rate:"
         android:singleLine="true" />
 
+    <TextView
+        android:id="@+id/textTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textDia"
+        android:text="Date:"
+        android:singleLine="true"
+        android:layout_gravity="right" />
 
 
 </LinearLayout>

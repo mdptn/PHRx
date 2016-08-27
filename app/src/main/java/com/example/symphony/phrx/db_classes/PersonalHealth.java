@@ -1,5 +1,7 @@
 package com.example.symphony.phrx.db_classes;
 
+import java.security.Timestamp;
+
 /**
  * Created by Andrew on 8/10/2016.
  */
@@ -12,6 +14,7 @@ public class PersonalHealth {
     private int systolic;
     private int diastolic;
     private int heartRate;
+    private long time; //in milliseconds
 
     //set
     public void setId(int id) {
@@ -32,20 +35,20 @@ public class PersonalHealth {
     public void setSystolic(int systolic) {
         this.systolic = systolic;
     }
-
     public void setDiastolic(int diastolic) {
         this.diastolic = diastolic;
     }
-
     public void setHeartRate(int heartRate) {
         this.heartRate = heartRate;
+    }
+    public void setTime(long time) {
+        this.time = time;
     }
 
     //get
     public int getId() {
         return id;
     }
-
     public double getWeight() {
         return weight;
     }
@@ -61,12 +64,13 @@ public class PersonalHealth {
     public int getSystolic() {
         return systolic;
     }
-
     public int getDiastolic() {
         return diastolic;
     }
-
     public int getHeartRate() {
         return heartRate;
+    }
+    public long getTime() {
+        return time;
     }
 }

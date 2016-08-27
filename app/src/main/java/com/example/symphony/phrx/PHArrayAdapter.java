@@ -3,6 +3,9 @@ package com.example.symphony.phrx;
 import android.view.LayoutInflater;
 import android.widget.ArrayAdapter;
 import android.content.Context;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +38,7 @@ public class PHArrayAdapter extends ArrayAdapter<PersonalHealth>{
         TextView height = (TextView) view.findViewById(R.id.textHeight);
         TextView blood = (TextView) view.findViewById(R.id.textBlood);
         TextView heartrate = (TextView) view.findViewById(R.id.textHR);
+        TextView time = (TextView) view.findViewById(R.id.textTime);
 
         // convert weight and height to string to use for setText
         String w = String.valueOf(ph.getWeight());
@@ -78,10 +82,15 @@ public class PHArrayAdapter extends ArrayAdapter<PersonalHealth>{
             heartrate.setVisibility(View.GONE);
         }
 
+        //display time
+        time.setVisibility(View.VISIBLE);
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy hh:mm:SSS");
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(ph.getTime());
+        time.setText("" + format.format(calendar.getTime()));
+
         view.setId(ph.getId());
 
         return view;
-
-
     }
 }

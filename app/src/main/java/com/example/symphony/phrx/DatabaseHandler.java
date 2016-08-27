@@ -39,6 +39,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String PH_SYS = "systolic";
     private static final String PH_DIA = "diastolic";
     private static final String PH_HR = "heart_rate";
+    private static final String PH_TIME = "time";
     //medication fields
     private static final String MED_ID = "id";
     private static final String MED_NAME = "name";
@@ -76,7 +77,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             PH_HEIGHT_UNIT + " TEXT NOT NULL," +
             PH_SYS + " INT," +
             PH_DIA + " INT," +
-            PH_HR + " INT" +
+            PH_HR + " INT," +
+            PH_TIME + " INT" +
             ")";
     private static final String CREATE_TABLE_MEDICATION = "CREATE TABLE " + TABLE_MEDICATION +
             "(" +
@@ -153,6 +155,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(PH_SYS, ph.getSystolic());
         values.put(PH_DIA, ph.getDiastolic());
         values.put(PH_HR, ph.getHeartRate());
+        values.put(PH_TIME, ph.getTime());
 
         long PersonalHealth_return = db.insert(TABLE_PERSONAL_HEALTH, null, values); //row id returned //-1 if error
     }
@@ -166,6 +169,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(PH_SYS, ph.getSystolic());
         values.put(PH_DIA, ph.getDiastolic());
         values.put(PH_HR, ph.getHeartRate());
+        values.put(PH_TIME, ph.getTime());
 
         long PersonalHealth_returns = db.update(TABLE_PERSONAL_HEALTH, values, "id = " + id, null);
     }
@@ -192,6 +196,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         ph.setSystolic(c.getInt(c.getColumnIndex(PH_SYS)));
         ph.setDiastolic(c.getInt(c.getColumnIndex(PH_DIA)));
         ph.setHeartRate(c.getInt(c.getColumnIndex(PH_HR)));
+        ph.setTime(c.getLong(c.getColumnIndex(PH_TIME)));
 
         return ph;
     }
@@ -213,6 +218,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 ph.setSystolic(c.getInt(c.getColumnIndex(PH_SYS)));
                 ph.setDiastolic(c.getInt(c.getColumnIndex(PH_DIA)));
                 ph.setHeartRate(c.getInt(c.getColumnIndex(PH_HR)));
+                ph.setTime(c.getLong(c.getColumnIndex(PH_TIME)));
                 phl.add(ph);
             } while (c.moveToNext());
         }
