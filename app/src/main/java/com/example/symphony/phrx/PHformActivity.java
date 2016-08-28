@@ -54,6 +54,12 @@ public class PHformActivity extends AppCompatActivity{
             return;
         }
 
+        if(!validateZero(x)) {
+            Toast toast = Toast.makeText(getApplication(), "Cannot have 0, please leave empty", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
+
         // set a field value to 0 if nothing was entered
         for (int i = 0; i < x.length; i++) {
             if (x[i].getText().toString().isEmpty()) {
@@ -107,6 +113,16 @@ public class PHformActivity extends AppCompatActivity{
                 return true;
             }
         }
+    }
+
+    public boolean validateZero(EditText[] x) {
+        for (int i = 0; i < x.length; i++) {
+            String inside = x[i].getText().toString();
+            if (inside.isEmpty()) continue;
+            Double test = Double.parseDouble(inside);
+            if (test.intValue() == 0) return false;
+        }
+        return true;
     }
 
     public void onPause() {
